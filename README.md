@@ -1,4 +1,79 @@
+# Aeta - A Laravel-based Web Application
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+
+## Project Description
+Aeta is a web application built with Laravel, designed to [brief description of what Aeta does - please provide details].
+
+## Prerequisites
+- PHP >= 8.1
+- Composer
+- MySQL
+- Node.js & NPM
+
+## Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone [repository-url]
+   cd Aeta
+   ```
+
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
+
+3. **Install NPM dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Create environment file**
+   ```bash
+   copy .env.example .env
+   ```
+
+5. **Generate application key**
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Configure database**
+   - Create a MySQL database
+   - Update `.env` file with your database credentials:
+     ```
+     DB_DATABASE=your_database_name
+     DB_USERNAME=your_username
+     DB_PASSWORD=your_password
+     ```
+
+7. **Run database migrations**
+   ```bash
+   php artisan migrate
+   ```
+
+8. **Start the development server**
+   ```bash
+   php artisan serve
+   ```
+
+9. **Build assets (in a new terminal)**
+   ```bash
+   npm run dev
+   ```
+
+10. **Access the application**
+    Open your browser and visit: `http://localhost:8000`
+
+## Additional Setup (if needed)
+- Run database seeders: `php artisan db:seed`
+- Clear configuration cache: `php artisan config:clear`
+- Clear route cache: `php artisan route:clear`
+- Clear view cache: `php artisan view:clear`
+
+---
+
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
