@@ -32,7 +32,7 @@
    RESET
 --------------------------------------------------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: sans-serif; background: #000; }
+body { font-family: 'Poppins', sans-serif; background: #000; }
 
 /* ---------------------------------------------------
    MAIN CAROUSEL WRAPPER
@@ -101,6 +101,99 @@ body { font-family: sans-serif; background: #000; }
     transform: translateY(-50%) translateX(0);
 }
 
+.carousel .buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.carousel .buttons button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel .buttons button:first-child {
+    background: linear-gradient(45deg, #f97316, #f59e0b);
+    color: white;
+    border: 2px solid #f97316;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+}
+
+.carousel .buttons button:first-child::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.carousel .buttons button:first-child:hover {
+    background: linear-gradient(45deg, #f97316, #f59e0b);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.5);
+}
+
+.carousel .buttons button:first-child:hover::before {
+    left: 100%;
+}
+
+.carousel .buttons button:first-child:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
+}
+
+.carousel .buttons button:last-child {
+    background: transparent;
+    border: 2px solid #fff;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.carousel .buttons button:last-child::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.carousel .buttons button:last-child:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(255, 255, 255, 0.15);
+}
+
+.carousel .buttons button:last-child:hover::before {
+    width: 100%;
+}
+
+.carousel .buttons button:active {
+    transform: translateY(1px);
+    transition: transform 0.1s;
+}
 
 /* ---------------------------------------------------
    CONTROLS (NEXT / PREV)
@@ -282,7 +375,7 @@ body { font-family: sans-serif; background: #000; }
     <!-- list item -->
     <div class="list">
         <div class="item">
-            <img src="{{ asset('images/aeta1.jpg') }}">
+            <img src="{{ asset('images/aeta1.jpg') }}" style="filter: brightness(0.4);">
             <div class="content">
                 <div class="author">AETA PEOPLE</div>
                 <div class="title">INDIGENOUS FILIPINOS</div>
@@ -291,8 +384,16 @@ body { font-family: sans-serif; background: #000; }
                     The Aeta are among the earliest inhabitants of the Philippines, believed to have arrived over 30,000 years ago via land bridges. These indigenous people are characterized by their dark skin, curly hair, and short stature. They are among the most skilled hunters and gatherers in the country, with an intimate knowledge of the forest ecosystem.
                 </div>
                 <div class="buttons">
-                    <button>LEARN MORE</button>
-                    <button>SUPPORT</button>
+                    <button class="group relative overflow-hidden">
+    <span class="relative z-10 flex items-center justify-center">
+        <i class="fas fa-book-open mr-2 group-hover:animate-bounce"></i>
+        <span class="font-bold">LEARN MORE</span>
+    </span>
+    <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+</button>
+<button class="group">
+    <i class="fas fa-hands-helping mr-2 group-hover:rotate-12 transition-transform"></i>SUPPORT US
+</button>
                 </div>
             </div>
         </div>
@@ -306,13 +407,21 @@ body { font-family: sans-serif; background: #000; }
                     Aeta communities traditionally practice hunting, fishing, and gathering. Men hunt wild animals using bows and arrows, while women gather root crops, fruits, and medicinal plants. Some groups practice swidden farming (kaingin). They are renowned for their expertise in herbal medicine and their ability to utilize hundreds of forest plants for food, medicine, and shelter.
                 </div>
                 <div class="buttons">
-                    <button>LEARN MORE</button>
-                    <button>SUPPORT</button>
+                    <button class="group relative overflow-hidden">
+    <span class="relative z-10 flex items-center justify-center">
+        <i class="fas fa-book-open mr-2 group-hover:animate-bounce"></i>
+        <span class="font-bold">LEARN MORE</span>
+    </span>
+    <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+</button>
+<button class="group">
+    <i class="fas fa-hands-helping mr-2 group-hover:rotate-12 transition-transform"></i>SUPPORT US
+</button>
                 </div>
             </div>
         </div>
         <div class="item">
-            <img src="{{ asset('images/aeta3.webp') }}">
+            <img src="{{ asset('images/aeta3.webp') }}" style="filter: brightness(0.4);">
             <div class="content">
                 <div class="author">AETA PEOPLE</div>
                 <div class="title">CULTURAL HERITAGE</div>
@@ -321,8 +430,16 @@ body { font-family: sans-serif; background: #000; }
                     Aeta culture is rich with oral traditions, including epic stories, myths, and legends passed down through generations. They have unique musical instruments like the bamboo zither and nose flute. Traditional dances often imitate animal movements or depict hunting scenes. Their spiritual beliefs center around nature spirits (anito), and they have traditional healers (herbolarios) who perform rituals for healing and protection.
                 </div>
                 <div class="buttons">
-                    <button>LEARN MORE</button>
-                    <button>SUPPORT</button>
+                    <button class="group relative overflow-hidden">
+    <span class="relative z-10 flex items-center justify-center">
+        <i class="fas fa-book-open mr-2 group-hover:animate-bounce"></i>
+        <span class="font-bold">LEARN MORE</span>
+    </span>
+    <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+</button>
+<button class="group">
+    <i class="fas fa-hands-helping mr-2 group-hover:rotate-12 transition-transform"></i>SUPPORT US
+</button>
                 </div>
             </div>
         </div>
@@ -336,8 +453,16 @@ body { font-family: sans-serif; background: #000; }
                     Today, the Aeta face numerous challenges including displacement from ancestral lands due to deforestation, mining, and commercial agriculture. Many have been forced to adapt to settled farming or low-wage labor. Despite these pressures, Aeta communities continue to fight for land rights, cultural preservation, and access to education and healthcare while maintaining their distinct identity and traditional knowledge.
                 </div>
                 <div class="buttons">
-                    <button>LEARN MORE</button>
-                    <button>SUPPORT</button>
+                    <button class="group relative overflow-hidden">
+    <span class="relative z-10 flex items-center justify-center">
+        <i class="fas fa-book-open mr-2 group-hover:animate-bounce"></i>
+        <span class="font-bold">LEARN MORE</span>
+    </span>
+    <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+</button>
+<button class="group">
+    <i class="fas fa-hands-helping mr-2 group-hover:rotate-12 transition-transform"></i>SUPPORT US
+</button>
                 </div>
             </div>
         </div>
