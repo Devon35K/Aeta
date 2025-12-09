@@ -371,7 +371,13 @@ body { font-family: 'Poppins', sans-serif; background: #000; }
 
 
 <!-- carousel -->
-<div class="carousel" style="margin-top: 0;">
+<div class="carousel" style="margin-top: 0; position: relative; overflow: hidden;">
+    <!-- Firefly Animation -->
+    <div class="fireflies">
+        <?php for($i = 0; $i < 15; $i++): ?>
+        <div class="firefly"></div>
+        <?php endfor; ?>
+    </div>
     <!-- list item -->
     <div class="list">
         <div class="item">
@@ -556,6 +562,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- Hero Section -->
     <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset('images/aeta-hero.jpg') }}');">
+        <!-- Wave Animation -->
+        <div class="wave">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
         <!-- Rainbow Animation Background -->
         <div class="rainbow-container absolute inset-0 overflow-hidden">
             <div class="rainbow"></div>
@@ -566,24 +579,16 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <!-- Tribal Pattern Overlay -->
-        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path d=\"M20,20 L80,20 L80,80 L20,80 Z\" fill=\"none\" stroke=\"%23ffffff\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/></svg>'); background-size: 100px;"></div>
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path d=\"M20,20 L80,20 L80,80 L20,80 Z\" fill=\"none\" stroke=\"%23ffffff\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/></svg></div>
 
         <div class="text-center text-white px-4 relative z-10">
-            <div class="tribal-divider mb-6">
-                <svg class="w-24 h-6 mx-auto" viewBox="0 0 100 20" preserveAspectRatio="none">
-                    <path d="M10,10 C20,0 30,20 40,10 C50,0 60,20 70,10 C80,0 90,10 100,10 L100,20 L0,20 L0,10 Z" fill="rgba(217, 119, 6, 0.8)"/>
-                </svg>
-            </div>
+         
             
             <h1 class="text-5xl md:text-7xl font-bold mb-6 transform transition-all duration-700 hover:scale-105">
                 <span class="inline-block">The Aeta People</span>
             </h1>
             
-            <div class="tribal-divider my-6 transform rotate-180">
-                <svg class="w-24 h-6 mx-auto" viewBox="0 0 100 20" preserveAspectRatio="none">
-                    <path d="M10,10 C20,0 30,20 40,10 C50,0 60,20 70,10 C80,0 90,10 100,10 L100,20 L0,20 L0,10 Z" fill="rgba(217, 119, 6, 0.8)"/>
-                </svg>
-            </div>
+       
             
             <p class="text-xl md:text-2xl mb-8 font-medium tracking-wider animate-fade-in-up" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
                 Preserving the Rich Cultural Heritage of the Indigenous People of Luzon
@@ -600,15 +605,100 @@ document.addEventListener('DOMContentLoaded', function() {
             </a>
         </div>
 
-        <!-- Animated Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
+        
     </section>
 
     <style>
+    /* Firefly Animation */
+    .fireflies {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    .firefly {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0.4vw;
+        height: 0.4vw;
+        margin: -0.2vw 0 0 9.8vw;
+        animation: ease 200s alternate infinite;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    .firefly::before,
+    .firefly::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transform-origin: -10vw;
+    }
+
+    .firefly::before {
+        background: black;
+        opacity: 0.4;
+        animation: drift ease alternate infinite;
+    }
+
+    .firefly::after {
+        background: white;
+        opacity: 0;
+        box-shadow: 0 0 0vw 0vw yellow;
+        animation: drift ease alternate infinite, flash ease infinite;
+    }
+
+    /* Generate unique animations for each firefly */
+    <?php for($i = 1; $i <= 15; $i++): ?>
+    <?php 
+        $steps = rand(16, 28);
+        $rotationSpeed = rand(8, 18) . 's';
+    ?>
+    .firefly:nth-child(<?php echo $i; ?>) {
+        animation-name: move<?php echo $i; ?>;
+    }
+    .firefly:nth-child(<?php echo $i; ?>)::before {
+        animation-duration: <?php echo $rotationSpeed; ?>;
+    }
+    .firefly:nth-child(<?php echo $i; ?>)::after {
+        animation-duration: <?php echo $rotationSpeed; ?>, <?php echo rand(5, 11) . 's'; ?>;
+        animation-delay: 0ms, <?php echo (rand(500, 8500)) . 'ms'; ?>;
+    }
+    @keyframes move<?php echo $i; ?> {
+        <?php for($step = 0; $step <= 100; $step += (100/$steps)): ?>
+        <?php $pos = $step * (100/$steps); ?>
+        <?php echo $pos; ?>% {
+            transform: translateX(<?php echo rand(-50, 50); ?>vw) 
+                       translateY(<?php echo rand(-50, 50); ?>vh) 
+                       scale(<?php echo (rand(25, 100)/100 + 0.25); ?>);
+        }
+        <?php endfor; ?>
+    }
+    <?php endfor; ?>
+
+    @keyframes drift {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes flash {
+        0%, 30%, 100% {
+            opacity: 0;
+            box-shadow: 0 0 0vw 0vw yellow;
+        }
+        5% {
+            opacity: 1;
+            box-shadow: 0 0 2vw 0.4vw yellow;
+        }
+    }
+
     /* Rainbow Animation */
     .rainbow-container {
         position: absolute;
@@ -728,6 +818,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
     .group:hover .group-hover\:animate-pulse {
         animation: pulse 1.5s infinite;
+    }
+    
+    /* Wave Animation */
+    .wave {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        z-index: 1;
+        overflow: hidden;
+    }
+    
+    .wave span {
+        position: absolute;
+        width: 325vh;
+        height: 325vh;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -75%);
+        background: #000;
+    }
+    
+    .wave span:nth-child(1) {
+        border-radius: 45%;
+        background: rgba(20, 20, 20, 0.6);
+        animation: animate 15s linear infinite;
+    }
+    
+    .wave span:nth-child(2) {
+        border-radius: 40%;
+        background: rgba(20, 20, 20, 0.4);
+        animation: animate 25s linear infinite;
+    }
+    
+    .wave span:nth-child(3) {
+        border-radius: 42.5%;
+        background: rgba(20, 20, 20, 0.2);
+        animation: animate 20s linear infinite;
+    }
+    
+    @keyframes animate {
+        0% {
+            transform: translate(-50%, -75%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -75%) rotate(360deg);
+        }
     }
     </style>
 
