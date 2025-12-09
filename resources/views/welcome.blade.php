@@ -370,36 +370,6 @@ body { font-family: 'Poppins', sans-serif; background: #000; }
 
 
 
-<!-- Carousel Image Hover Effect -->
-<style>
-    .carousel .item {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .carousel .item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: brightness(0.4);
-    }
-
-    .carousel .item::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.3);
-    }
-
-    .carousel .item .content {
-        position: relative;
-        z-index: 2;
-    }
-</style>
-
 <!-- carousel -->
 <div class="carousel" style="margin-top: 0;">
     <!-- list item -->
@@ -585,204 +555,60 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     <!-- Hero Section -->
-    <style>
-    @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
-    @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-    }
-    
-    /* Hero Section Styles */
-    #hero-section {
-        opacity: 1;
-        transition: opacity 0.3s ease-in-out;
-        pointer-events: auto;
-    }
-    
-    #hero-section * 
-        pointer-events: auto;
-    }
-    
-    /* Smooth scroll behavior */
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    /* Hero Section Hover Effects */
-    #home {
-        position: relative;
-        overflow: hidden;
-        transition: all 0.5s ease;
-    }
-    
-    .background-zoom {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        transition: transform 1s ease-out;
-        z-index: 0;
-    }
-    
-    #home:hover .background-zoom {
-        transform: scale(1.05);
-    }
-    
-    .content-wrapper {
-        position: relative;
-        z-index: 2;
-        transition: all 0.5s ease;
-    }
-    
-    #home h1 {
-        font-family: 'Lobster Two', cursive;
-        font-style: italic;
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        transition: all 0.3s ease;
-    }
-    
-    #home:hover h1 {
-        text-shadow: 0 0 20px rgba(251, 191, 36, 0.7);
-        transform: scale(1.05);
-    }
-    
-    .content-wrapper > * {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    
-    #home:hover .content-wrapper > * {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .content-wrapper > *:nth-child(1) { transition-delay: 0.1s; }
-    .content-wrapper > *:nth-child(2) { transition-delay: 0.2s; }
-    .content-wrapper > *:nth-child(3) { transition-delay: 0.3s; }
-    .content-wrapper > *:nth-child(4) { transition-delay: 0.4s; }
-    </style>
-    
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden group">
-        <!-- Background Image for Hover Effect -->
-        <div class="background-zoom" style="background-image: url('{{ asset('images/aeta-hero.jpg') }}');">
-            <!-- Dark Overlay -->
-            <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-500"></div>
-        </div>
-
-        <!-- Wave Animation with Text Container -->
-       <div class="wave absolute inset-0">
-           <!-- Wave Spans -->
-           <div class="absolute inset-0">
-               <span style="border-radius: 45%; background: rgba(20, 20, 20, 0.5); animation: animate 15s linear infinite;"></span>
-               <span style="border-radius: 40%; background: rgba(20, 20, 20, 0.3); animation: animate 20s linear infinite;"></span>
-               <span style="border-radius: 42.5%; background: rgba(20, 20, 20, 0.2); animation: animate 25s linear infinite;"></span>
-           </div>
-           
-           <!-- Text Content -->
-           <div class="relative z-10 h-full w-full flex items-center justify-center">
-               <div class="text-center text-white px-4 max-w-4xl mx-auto">
-                   <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                       <span class="text-amber-300">The Aeta People</span>
-                   </h2>
-                   <p class="text-lg md:text-xl mb-8 opacity-90">
-                       Preserving the Rich Cultural Heritage of the Indigenous People of Luzon
-                   </p>
-                   <a href="#culture" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300">
-                       Explore Culture
-                   </a>
-               </div>
-           </div>
-        </div>
-
+    <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset('images/aeta-hero.jpg') }}');">
         <!-- Rainbow Animation Background -->
         <div class="rainbow-container absolute inset-0 overflow-hidden">
             <div class="rainbow"></div>
             <div class="rainbow"></div>
             <div class="rainbow"></div>
+            <div class="rainbow"></div>
+            <div class="rainbow"></div>
         </div>
 
-        <!-- Content -->
-        <div id="hero-section" class="fixed inset-0 flex items-center justify-center text-center px-4 z-10 transition-opacity duration-500">
-            <!-- Content has been moved to the wave animation section -->
+        <!-- Tribal Pattern Overlay -->
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path d=\"M20,20 L80,20 L80,80 L20,80 Z\" fill=\"none\" stroke=\"%23ffffff\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/></svg>'); background-size: 100px;"></div>
+
+        <div class="text-center text-white px-4 relative z-10">
+            <div class="tribal-divider mb-6">
+                <svg class="w-24 h-6 mx-auto" viewBox="0 0 100 20" preserveAspectRatio="none">
+                    <path d="M10,10 C20,0 30,20 40,10 C50,0 60,20 70,10 C80,0 90,10 100,10 L100,20 L0,20 L0,10 Z" fill="rgba(217, 119, 6, 0.8)"/>
+                </svg>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 transform transition-all duration-700 hover:scale-105">
+                <span class="inline-block">The Aeta People</span>
+            </h1>
+            
+            <div class="tribal-divider my-6 transform rotate-180">
+                <svg class="w-24 h-6 mx-auto" viewBox="0 0 100 20" preserveAspectRatio="none">
+                    <path d="M10,10 C20,0 30,20 40,10 C50,0 60,20 70,10 C80,0 90,10 100,10 L100,20 L0,20 L0,10 Z" fill="rgba(217, 119, 6, 0.8)"/>
+                </svg>
+            </div>
+            
+            <p class="text-xl md:text-2xl mb-8 font-medium tracking-wider animate-fade-in-up" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                Preserving the Rich Cultural Heritage of the Indigenous People of Luzon
+            </p>
+            
+            <a href="#culture" class="group relative inline-block">
+                <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 to-amber-800 rounded-full opacity-75 group-hover:opacity-100 transition-all duration-300 blur-sm group-hover:blur"></div>
+                <span class="relative z-10 bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 inline-flex items-center group-hover:px-10 group-hover:py-4">
+                    <span class="mr-2">Explore Culture</span>
+                    <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </span>
+            </a>
         </div>
 
-        <script>
-        // Show/hide hero section based on scroll position
-        document.addEventListener('DOMContentLoaded', function() {
-            const heroSection = document.getElementById('hero-section');
-            let lastScrollTop = 0;
-            
-            function handleScroll() {
-                const scrollPosition = window.scrollY;
-                const heroHeight = heroSection.offsetHeight;
-                const viewportHeight = window.innerHeight;
-                
-                // Only start hiding when scrolled past the hero section
-                if (scrollPosition > heroHeight) {
-                    heroSection.style.opacity = '0';
-                    heroSection.style.pointerEvents = 'none';
-                } else {
-                    heroSection.style.opacity = '1';
-                    heroSection.style.pointerEvents = 'auto';
-                }
-                
-                lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition;
-            }
-            
-            // Initial check
-            handleScroll();
-            
-            // Throttle scroll events for better performance
-            let isScrolling;
-            window.addEventListener('scroll', function() {
-                window.clearTimeout(isScrolling);
-                isScrolling = setTimeout(handleScroll, 50);
-            }, { passive: true });
-        });
-        </script>
-       
+        <!-- Animated Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
     </section>
 
     <style>
-    /* Wave Animation */
-   .wave {
-       position: absolute;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       overflow: hidden;
-   }
-   .wave > div:first-child {
-       position: absolute;
-       width: 100%;
-       height: 100%;
-   }
-   .wave span {
-       content: "";
-       position: absolute;
-       width: 325vh;
-        height: 325vh;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -75%);
-    }
-    @keyframes animate {
-        0% {
-            transform: translate(-50%, -75%) rotate(0deg);
-        }
-        100% {
-            transform: translate(-50%, -75%) rotate(360deg);
-        }
-    }
-
     /* Rainbow Animation */
     .rainbow-container {
         position: absolute;
@@ -840,6 +666,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     50px 0 50px 25px rgba(94, 234, 212, 0.5),
                     130px 0 80px 40px white;
     }
+
     .rainbow:nth-child(5) {
         animation-delay: -20s;
         box-shadow: -130px 0 80px 40px white, 
@@ -1135,251 +962,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
-    <!-- Hero Section Firefly Effect -->
-    <style>
-    /* Firefly Animation */
-    .carousel {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .firefly {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 0.4vw;
-        height: 0.4vw;
-        margin: -0.2vw 0 0 9.8vw;
-        animation: ease 200s alternate infinite;
-        pointer-events: none;
-        z-index: 2;
-    }
-
-    .firefly::before,
-    .firefly::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        transform-origin: -10vw;
-    }
-
-    .firefly::before {
-        background: black;
-        opacity: 0.4;
-        animation: drift ease alternate infinite;
-    }
-
-    .firefly::after {
-        background: white;
-        opacity: 0;
-        box-shadow: 0 0 0vw 0vw yellow;
-        animation: drift ease alternate infinite, flash ease infinite;
-    }
-
-    @keyframes drift {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    @keyframes flash {
-        0%, 30%, 100% {
-            opacity: 0;
-            box-shadow: 0 0 0vw 0vw yellow;
-        }
-        5% {
-            opacity: 1;
-            box-shadow: 0 0 2vw 0.4vw yellow;
-        }
-    }
-
-    /* Generate 15 unique firefly animations */
-    .firefly:nth-child(1) { animation-name: move1; }
-    .firefly:nth-child(1)::before { animation-duration: 8s; }
-    .firefly:nth-child(1)::after { animation-duration: 8s, 10000ms; animation-delay: 0ms, 1000ms; }
-
-    .firefly:nth-child(2) { animation-name: move2; }
-    .firefly:nth-child(2)::before { animation-duration: 12s; }
-    .firefly:nth-child(2)::after { animation-duration: 12s, 8500ms; animation-delay: 0ms, 2000ms; }
-
-    .firefly:nth-child(3) { animation-name: move3; }
-    .firefly:nth-child(3)::before { animation-duration: 10s; }
-    .firefly:nth-child(3)::after { animation-duration: 10s, 12000ms; animation-delay: 0ms, 1500ms; }
-
-    .firefly:nth-child(4) { animation-name: move4; }
-    .firefly:nth-child(4)::before { animation-duration: 15s; }
-    .firefly:nth-child(4)::after { animation-duration: 15s, 9000ms; animation-delay: 0ms, 2500ms; }
-
-    .firefly:nth-child(5) { animation-name: move5; }
-    .firefly:nth-child(5)::before { animation-duration: 9s; }
-    .firefly:nth-child(5)::after { animation-duration: 9s, 11000ms; animation-delay: 0ms, 1800ms; }
-
-    .firefly:nth-child(6) { animation-name: move6; }
-    .firefly:nth-child(6)::before { animation-duration: 11s; }
-    .firefly:nth-child(6)::after { animation-duration: 11s, 9500ms; animation-delay: 0ms, 2200ms; }
-
-    .firefly:nth-child(7) { animation-name: move7; }
-    .firefly:nth-child(7)::before { animation-duration: 13s; }
-    .firefly:nth-child(7)::after { animation-duration: 13s, 10500ms; animation-delay: 0ms, 1200ms; }
-
-    .firefly:nth-child(8) { animation-name: move8; }
-    .firefly:nth-child(8)::before { animation-duration: 7s; }
-    .firefly:nth-child(8)::after { animation-duration: 7s, 8000ms; animation-delay: 0ms, 2800ms; }
-
-    .firefly:nth-child(9) { animation-name: move9; }
-    .firefly:nth-child(9)::before { animation-duration: 14s; }
-    .firefly:nth-child(9)::after { animation-duration: 14s, 13000ms; animation-delay: 0ms, 900ms; }
-
-    .firefly:nth-child(10) { animation-name: move10; }
-    .firefly:nth-child(10)::before { animation-duration: 9s; }
-    .firefly:nth-child(10)::after { animation-duration: 9s, 11000ms; animation-delay: 0ms, 3200ms; }
-
-    .firefly:nth-child(11) { animation-name: move11; }
-    .firefly:nth-child(11)::before { animation-duration: 11s; }
-    .firefly:nth-child(11)::after { animation-duration: 11s, 9500ms; animation-delay: 0ms, 1800ms; }
-
-    .firefly:nth-child(12) { animation-name: move12; }
-    .firefly:nth-child(12)::before { animation-duration: 10s; }
-    .firefly:nth-child(12)::after { animation-duration: 10s, 10000ms; animation-delay: 0ms, 2400ms; }
-
-    .firefly:nth-child(13) { animation-name: move13; }
-    .firefly:nth-child(13)::before { animation-duration: 12s; }
-    .firefly:nth-child(13)::after { animation-duration: 12s, 11000ms; animation-delay: 0ms, 1500ms; }
-
-    .firefly:nth-child(14) { animation-name: move14; }
-    .firefly:nth-child(14)::before { animation-duration: 8s; }
-    .firefly:nth-child(14)::after { animation-duration: 8s, 9000ms; animation-delay: 0ms, 2000ms; }
-
-    .firefly:nth-child(15) { animation-name: move15; }
-    .firefly:nth-child(15)::before { animation-duration: 13s; }
-    .firefly:nth-child(15)::after { animation-duration: 13s, 12000ms; animation-delay: 0ms, 1700ms; }
-
-    /* Keyframes for each firefly's movement */
-    @keyframes move1 {
-        0%, 100% { transform: translateX(-10vw) translateY(-15vh) scale(0.7); }
-        25% { transform: translateX(15vw) translateY(-5vh) scale(0.9); }
-        50% { transform: translateX(5vw) translateY(20vh) scale(0.8); }
-        75% { transform: translateX(-20vw) translateY(10vh) scale(0.6); }
-    }
-
-    @keyframes move2 {
-        0%, 100% { transform: translateX(20vw) translateY(-10vh) scale(0.8); }
-        25% { transform: translateX(-15vw) translateY(15vh) scale(0.7); }
-        50% { transform: translateX(10vw) translateY(-5vh) scale(0.9); }
-        75% { transform: translateX(-5vw) translateY(25vh) scale(0.6); }
-    }
-
-    @keyframes move3 {
-        0%, 100% { transform: translateX(-15vw) translateY(5vh) scale(0.6); }
-        25% { transform: translateX(25vw) translateY(-15vh) scale(0.8); }
-        50% { transform: translateX(-5vw) translateY(20vh) scale(0.7); }
-        75% { transform: translateX(15vw) translateY(-10vh) scale(0.9); }
-    }
-
-    @keyframes move4 {
-        0%, 100% { transform: translateX(5vw) translateY(-20vh) scale(0.9); }
-        25% { transform: translateX(-20vw) translateY(10vh) scale(0.7); }
-        50% { transform: translateX(15vw) translateY(5vh) scale(0.6); }
-        75% { transform: translateX(-10vw) translateY(25vh) scale(0.8); }
-    }
-
-    @keyframes move5 {
-        0%, 100% { transform: translateX(-25vw) translateY(-5vh) scale(0.7); }
-        25% { transform: translateX(10vw) translateY(15vh) scale(0.9); }
-        50% { transform: translateX(-15vw) translateY(-10vh) scale(0.6); }
-        75% { transform: translateX(20vw) translateY(5vh) scale(0.8); }
-    }
-
-    @keyframes move6 {
-        0%, 100% { transform: translateX(15vw) translateY(-15vh) scale(0.8); }
-        25% { transform: translateX(-10vw) translateY(10vh) scale(0.6); }
-        50% { transform: translateX(25vw) translateY(5vh) scale(0.9); }
-        75% { transform: translateX(-20vw) translateY(-5vh) scale(0.7); }
-    }
-
-    @keyframes move7 {
-        0%, 100% { transform: translateX(-20vw) translateY(10vh) scale(0.7); }
-        25% { transform: translateX(5vw) translateY(-15vh) scale(0.9); }
-        50% { transform: translateX(15vw) translateY(5vh) scale(0.6); }
-        75% { transform: translateX(-10vw) translateY(20vh) scale(0.8); }
-    }
-
-    @keyframes move8 {
-        0%, 100% { transform: translateX(10vw) translateY(-10vh) scale(0.9); }
-        25% { transform: translateX(-15vw) translateY(5vh) scale(0.7); }
-        50% { transform: translateX(20vw) translateY(15vh) scale(0.8); }
-        75% { transform: translateX(-5vw) translateY(-20vh) scale(0.6); }
-    }
-
-    @keyframes move9 {
-        0%, 100% { transform: translateX(-15vw) translateY(5vh) scale(0.6); }
-        25% { transform: translateX(25vw) translateY(-10vh) scale(0.8); }
-        50% { transform: translateX(-5vw) translateY(15vh) scale(0.9); }
-        75% { transform: translateX(15vw) translateY(-5vh) scale(0.7); }
-    }
-
-    @keyframes move10 {
-        0%, 100% { transform: translateX(5vw) translateY(-15vh) scale(0.8); }
-        25% { transform: translateX(-20vw) translateY(10vh) scale(0.6); }
-        50% { transform: translateX(15vw) translateY(-5vh) scale(0.9); }
-        75% { transform: translateX(-10vw) translateY(20vh) scale(0.7); }
-    }
-
-    @keyframes move11 {
-        0%, 100% { transform: translateX(-10vw) translateY(10vh) scale(0.9); }
-        25% { transform: translateX(15vw) translateY(-5vh) scale(0.7); }
-        50% { transform: translateX(-5vw) translateY(15vh) scale(0.6); }
-        75% { transform: translateX(20vw) translateY(-10vh) scale(0.8); }
-    }
-
-    @keyframes move12 {
-        0%, 100% { transform: translateX(20vw) translateY(5vh) scale(0.7); }
-        25% { transform: translateX(-15vw) translateY(-10vh) scale(0.9); }
-        50% { transform: translateX(10vw) translateY(15vh) scale(0.8); }
-        75% { transform: translateX(-20vw) translateY(-5vh) scale(0.6); }
-    }
-
-    @keyframes move13 {
-        0%, 100% { transform: translateX(-5vw) translateY(-20vh) scale(0.8); }
-        25% { transform: translateX(25vw) translateY(10vh) scale(0.6); }
-        50% { transform: translateX(-15vw) translateY(-5vh) scale(0.9); }
-        75% { transform: translateX(10vw) translateY(20vh) scale(0.7); }
-    }
-
-    @keyframes move14 {
-        0%, 100% { transform: translateX(15vw) translateY(-10vh) scale(0.6); }
-        25% { transform: translateX(-20vw) translateY(5vh) scale(0.8); }
-        50% { transform: translateX(10vw) translateY(15vh) scale(0.7); }
-        75% { transform: translateX(-15vw) translateY(-5vh) scale(0.9); }
-    }
-
-    @keyframes move15 {
-        0%, 100% { transform: translateX(-20vw) translateY(15vh) scale(0.9); }
-        25% { transform: translateX(10vw) translateY(-10vh) scale(0.7); }
-        50% { transform: translateX(-5vw) translateY(5vh) scale(0.6); }
-        75% { transform: translateX(20vw) translateY(-15vh) scale(0.8); }
-    }
-    </style>
-
-    <!-- Firefly Elements inside Hero -->
-    <div class="fireflies absolute inset-0 z-10 pointer-events-none">
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-    </div>
 </body>
 </html>
