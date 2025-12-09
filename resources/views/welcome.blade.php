@@ -870,58 +870,93 @@ document.addEventListener('DOMContentLoaded', function() {
     </style>
 
     <!-- Culture Section -->
-    <section id="culture" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Aeta Culture</h2>
+    <section id="culture" class="py-20 bg-gradient-to-br from-slate-50 to-gray-100 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-red-500 to-red-600 rounded-full animate-pulse shadow-2xl"></div>
+            <div class="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg transform rotate-45 animate-bounce shadow-2xl"></div>
+            <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full animate-spin shadow-2xl"></div>
+            <div class="absolute top-1/3 right-1/4 w-20 h-20 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full animate-pulse shadow-2xl"></div>
+            <div class="absolute bottom-1/3 left-1/3 w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-700 rounded-full animate-bounce shadow-2xl"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-gray-800 mb-4">Aeta Culture</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-slate-600 to-gray-600 mx-auto rounded-full"></div>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-amber-50 p-6 rounded-lg shadow-md">
-                    <div class="text-4xl text-amber-600 mb-4"><i class="fas fa-hands-helping"></i></div>
-                    <h3 class="text-xl font-semibold mb-3">Community Life</h3>
-                    <p class="text-gray-700">The Aeta live in small, kin-based groups with strong communal bonds. Their social structure is egalitarian, with decisions often made through group consensus.</p>
+                <div class="group bg-red-600 bg-opacity-90 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-red-700">
+                    <div class="text-5xl text-white mb-6 transform group-hover:scale-110 transition-transform duration-300"><i class="fas fa-hands-helping"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Community Life</h3>
+                    <p class="text-red-100 leading-relaxed">The Aeta live in small, kin-based groups with strong communal bonds. Their social structure is egalitarian, with decisions often made through group consensus.</p>
+                    <div class="mt-6 flex items-center text-white font-semibold">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
                 </div>
-                <div class="bg-amber-50 p-6 rounded-lg shadow-md">
-                    <div class="text-4xl text-amber-600 mb-4"><i class="fas fa-utensils"></i></div>
-                    <h3 class="text-xl font-semibold mb-3">Traditional Cuisine</h3>
-                    <p class="text-gray-700">Aeta cuisine is based on foraged foods, including wild yams, fruits, and game. They are known for their knowledge of edible plants and traditional cooking methods.</p>
+                <div class="group bg-yellow-500 bg-opacity-90 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-yellow-600">
+                    <div class="text-5xl text-gray-800 mb-6 transform group-hover:scale-110 transition-transform duration-300"><i class="fas fa-utensils"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Traditional Cuisine</h3>
+                    <p class="text-gray-700 leading-relaxed">Aeta cuisine is based on foraged foods, including wild yams, fruits, and game. They are known for their knowledge of edible plants and traditional cooking methods.</p>
+                    <div class="mt-6 flex items-center text-gray-800 font-semibold">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
                 </div>
-                <div class="bg-amber-50 p-6 rounded-lg shadow-md">
-                    <div class="text-4xl text-amber-600 mb-4"><i class="fas fa-music"></i></div>
-                    <h3 class="text-xl font-semibold mb-3">Music & Dance</h3>
-                    <p class="text-gray-700">Traditional Aeta music features bamboo instruments and rhythmic chants. Their dances often depict daily activities and are performed during celebrations.</p>
+                <div class="group bg-cyan-600 bg-opacity-90 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-cyan-700">
+                    <div class="text-5xl text-white mb-6 transform group-hover:scale-110 transition-transform duration-300"><i class="fas fa-music"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Music & Dance</h3>
+                    <p class="text-cyan-100 leading-relaxed">Traditional Aeta music features bamboo instruments and rhythmic chants. Their dances often depict daily activities and are performed during celebrations.</p>
+                    <div class="mt-6 flex items-center text-white font-semibold">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- History Section -->
-    <section id="history" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Historical Journey</h2>
-            <div class="max-w-4xl mx-auto">
+    <section id="history" class="py-20 bg-gradient-to-br from-neutral-100 to-slate-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-neutral-300 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-slate-300 rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neutral-800 to-slate-800 mb-4">Historical Journey</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-neutral-600 to-slate-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="max-w-6xl mx-auto">
                 <div class="relative">
-                    <div class="border-l-4 border-amber-500 absolute h-full left-1/2 transform -translate-x-1/2"></div>
+                    <div class="border-l-4 border-gradient-to-b from-neutral-500 to-slate-500 absolute h-full left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-neutral-500 to-slate-500"></div>
                     
-                    <div class="mb-12 relative">
-                        <div class="bg-white p-6 rounded-lg shadow-md relative w-5/6 lg:w-1/2 mx-auto lg:mx-0 lg:mr-auto">
-                            <div class="absolute -left-3 top-6 w-6 h-6 bg-amber-500 rounded-full"></div>
-                            <h3 class="text-xl font-semibold mb-2">Pre-Colonial Era</h3>
-                            <p class="text-gray-700">The Aeta are considered one of the earliest inhabitants of the Philippines, with their presence dating back over 20,000 years. They are believed to be descendants of the first humans to migrate to the Philippine archipelago.</p>
+                    <div class="mb-16 relative">
+                        <div class="bg-gray-300 bg-opacity-95 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 relative w-5/6 lg:w-1/2 mx-auto lg:mx-0 lg:mr-auto border border-gray-400">
+                            <div class="absolute -left-4 top-8 w-8 h-8 bg-gradient-to-r from-neutral-500 to-slate-500 rounded-full shadow-lg animate-pulse"></div>
+                            <div class="absolute -left-8 top-8 w-16 h-16 bg-gradient-to-r from-neutral-400 to-slate-400 rounded-full opacity-20 animate-ping"></div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Pre-Colonial Era</h3>
+                            <p class="text-gray-700 leading-relaxed">The Aeta are considered one of the earliest inhabitants of the Philippines, with their presence dating back over 20,000 years. They are believed to be descendants of the first humans to migrate to the Philippine archipelago.</p>
+                            <div class="mt-4 text-sm text-gray-600 font-semibold">Over 20,000 years of heritage</div>
                         </div>
                     </div>
                     
-                    <div class="mb-12 relative">
-                        <div class="bg-white p-6 rounded-lg shadow-md relative w-5/6 lg:w-1/2 ml-auto">
-                            <div class="absolute -right-3 top-6 w-6 h-6 bg-amber-500 rounded-full"></div>
-                            <h3 class="text-xl font-semibold mb-2">Spanish Colonial Period</h3>
-                            <p class="text-gray-700">During Spanish colonization, many Aeta retreated to the mountains to avoid subjugation. They maintained much of their traditional way of life while some groups interacted with lowland communities.</p>
+                    <div class="mb-16 relative">
+                        <div class="bg-gray-700 bg-opacity-95 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 relative w-5/6 lg:w-1/2 ml-auto border border-gray-800">
+                            <div class="absolute -right-4 top-8 w-8 h-8 bg-gradient-to-r from-slate-500 to-gray-500 rounded-full shadow-lg animate-pulse"></div>
+                            <div class="absolute -right-8 top-8 w-16 h-16 bg-gradient-to-r from-slate-400 to-gray-400 rounded-full opacity-20 animate-ping"></div>
+                            <h3 class="text-2xl font-bold mb-4 text-white">Spanish Colonial Period</h3>
+                            <p class="text-gray-200 leading-relaxed">During Spanish colonization, many Aeta retreated to the mountains to avoid subjugation. They maintained much of their traditional way of life while some groups interacted with lowland communities.</p>
+                            <div class="mt-4 text-sm text-gray-300 font-semibold">300+ years of resistance</div>
                         </div>
                     </div>
                     
                     <div class="relative">
-                        <div class="bg-white p-6 rounded-lg shadow-md relative w-5/6 lg:w-1/2 mx-auto lg:mx-0 lg:mr-auto">
-                            <div class="absolute -left-3 top-6 w-6 h-6 bg-amber-500 rounded-full"></div>
-                            <h3 class="text-xl font-semibold mb-2">Modern Times</h3>
-                            <p class="text-gray-700">Today, the Aeta face challenges from modernization, loss of ancestral lands, and cultural assimilation. However, there are ongoing efforts to preserve their heritage and secure their rights as indigenous people.</p>
+                        <div class="bg-gray-600 bg-opacity-95 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 relative w-5/6 lg:w-1/2 mx-auto lg:mx-0 lg:mr-auto border border-gray-700">
+                            <div class="absolute -left-4 top-8 w-8 h-8 bg-gradient-to-r from-gray-500 to-zinc-500 rounded-full shadow-lg animate-pulse"></div>
+                            <div class="absolute -left-8 top-8 w-16 h-16 bg-gradient-to-r from-gray-400 to-zinc-400 rounded-full opacity-20 animate-ping"></div>
+                            <h3 class="text-2xl font-bold mb-4 text-white">Modern Times</h3>
+                            <p class="text-gray-200 leading-relaxed">Today, the Aeta face challenges from modernization, loss of ancestral lands, and cultural assimilation. However, there are ongoing efforts to preserve their heritage and secure their rights as indigenous people.</p>
+                            <div class="mt-4 text-sm text-gray-300 font-semibold">Cultural preservation movement</div>
                         </div>
                     </div>
                 </div>
@@ -930,26 +965,69 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 
     <!-- Geography Section -->
-    <section id="geography" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Geographical Distribution</h2>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Traditional Territories</h3>
-                    <p class="text-gray-700 mb-4">The Aeta people are primarily found in the mountainous regions of Luzon, particularly in:</p>
-                    <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
-                        <li>Zambales Mountains</li>
-                        <li>Sierra Madre Mountain Range</li>
-                        <li>Bataan Peninsula</li>
-                        <li>Pampanga and Tarlac provinces</li>
-                        <li>Bicol Region</li>
-                    </ul>
-                    <p class="text-gray-700">Their traditional territories are characterized by dense forests, mountains, and river systems that have sustained their way of life for millennia.</p>
+    <section id="geography" class="py-20 bg-gradient-to-br from-stone-50 to-slate-100 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 left-10 w-40 h-40 bg-stone-300 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-32 h-32 bg-slate-300 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-neutral-300 rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-stone-800 to-slate-800 mb-4">Geographical Distribution</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-stone-600 to-slate-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="bg-white bg-opacity-90 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-stone-200">
+                        <h3 class="text-3xl font-bold mb-6 text-stone-900 flex items-center">
+                            <i class="fas fa-mountain text-stone-600 mr-4"></i>
+                            Traditional Territories
+                        </h3>
+                        <p class="text-gray-700 mb-6 leading-relaxed text-lg">The Aeta people are primarily found in the mountainous regions of Luzon, particularly in:</p>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="flex items-center p-3 bg-stone-50 rounded-lg border border-stone-200 hover:bg-stone-100 transition-colors">
+                                <i class="fas fa-map-marker-alt text-stone-600 mr-3"></i>
+                                <span class="font-semibold text-stone-900">Zambales Mountains</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-colors">
+                                <i class="fas fa-map-marker-alt text-slate-600 mr-3"></i>
+                                <span class="font-semibold text-slate-900">Sierra Madre Mountain Range</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-neutral-50 rounded-lg border border-neutral-200 hover:bg-neutral-100 transition-colors">
+                                <i class="fas fa-map-marker-alt text-neutral-600 mr-3"></i>
+                                <span class="font-semibold text-neutral-900">Bataan Peninsula</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-stone-50 rounded-lg border border-stone-200 hover:bg-stone-100 transition-colors">
+                                <i class="fas fa-map-marker-alt text-stone-600 mr-3"></i>
+                                <span class="font-semibold text-stone-900">Pampanga and Tarlac</span>
+                            </div>
+                            <div class="flex items-center p-3 bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-colors">
+                                <i class="fas fa-map-marker-alt text-slate-600 mr-3"></i>
+                                <span class="font-semibold text-slate-900">Bicol Region</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-stone-100 to-slate-100 p-6 rounded-2xl border border-stone-300">
+                        <p class="text-gray-700 leading-relaxed flex items-start">
+                            <i class="fas fa-leaf text-stone-600 mr-3 mt-1"></i>
+                            <span>Their traditional territories are characterized by dense forests, mountains, and river systems that have sustained their way of life for millennia.</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-gray-100 p-6 rounded-lg">
-                    <div id="map" class="h-96 bg-gray-200 rounded-lg flex items-center justify-center">
-                        <p class="text-gray-500">Map of Aeta territories in Luzon</p>
-                        <!-- In a real implementation, you would embed a map here -->
+                <div class="bg-white bg-opacity-90 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-slate-200">
+                    <div id="map" class="h-96 bg-gradient-to-br from-stone-100 to-slate-100 rounded-xl flex flex-col items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10">
+                            <div class="absolute top-10 left-10 w-20 h-20 border-4 border-stone-600 rounded-full"></div>
+                            <div class="absolute bottom-20 right-20 w-16 h-16 border-4 border-slate-600 rounded-lg transform rotate-45"></div>
+                            <div class="absolute top-1/3 right-1/3 w-12 h-12 border-4 border-neutral-600 rounded-full"></div>
+                        </div>
+                        <i class="fas fa-map text-6xl text-stone-600 mb-4"></i>
+                        <p class="text-stone-700 font-semibold text-lg mb-2">Interactive Map</p>
+                        <p class="text-stone-600 text-center">Aeta territories in Luzon</p>
+                        <div class="mt-6 px-4 py-2 bg-stone-600 text-white rounded-lg hover:bg-stone-700 transition-colors cursor-pointer">
+                            <i class="fas fa-expand mr-2"></i>
+                            View Full Map
+                        </div>
                     </div>
                 </div>
             </div>
@@ -957,32 +1035,75 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Gallery</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Gallery items will be dynamically loaded here -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="{{ asset('images/aeta-1.jpg') }}" alt="Aeta community" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg">Traditional Dance</h3>
-                        <p class="text-gray-600 text-sm">Aeta performing traditional dance during a cultural festival</p>
+    <section id="gallery" class="py-20 bg-gradient-to-br from-slate-50 via-neutral-50 to-stone-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-1/4 w-48 h-48 bg-slate-300 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-40 h-40 bg-neutral-300 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-stone-300 rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-800 via-neutral-800 to-stone-800 mb-4">Gallery</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-slate-600 via-neutral-600 to-stone-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-200">
+                    <div class="relative overflow-hidden h-64">
+                        <div class="absolute inset-0 bg-gradient-to-br from-slate-100 to-neutral-100 animate-pulse"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-image text-6xl text-slate-400"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-3 text-slate-900 group-hover:text-slate-700 transition-colors">Traditional Dance</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Aeta performing traditional dance during a cultural festival</p>
+                        <div class="mt-4 flex items-center text-slate-600 font-semibold text-sm cursor-pointer group-hover:text-slate-700">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="{{ asset('images/aeta-2.jpg') }}" alt="Aeta craftsmanship" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg">Bamboo Crafts</h3>
-                        <p class="text-gray-600 text-sm">Traditional bamboo weaving techniques</p>
+                <div class="group bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-neutral-200">
+                    <div class="relative overflow-hidden h-64">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neutral-100 to-stone-100 animate-pulse"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-image text-6xl text-neutral-400"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-3 text-neutral-900 group-hover:text-neutral-700 transition-colors">Bamboo Crafts</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Traditional bamboo weaving techniques</p>
+                        <div class="mt-4 flex items-center text-neutral-600 font-semibold text-sm cursor-pointer group-hover:text-neutral-700">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-md">
-                    <img src="{{ asset('images/aeta-3.jpg') }}" alt="Aeta family" class="w-full h-64 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg">Family Life</h3>
-                        <p class="text-gray-600 text-sm">Aeta family in their traditional home</p>
+                <div class="group bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-stone-200">
+                    <div class="relative overflow-hidden h-64">
+                        <div class="absolute inset-0 bg-gradient-to-br from-stone-100 to-slate-100 animate-pulse"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-image text-6xl text-stone-400"></i>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-3 text-stone-900 group-hover:text-stone-700 transition-colors">Family Life</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Aeta family in their traditional home</p>
+                        <div class="mt-4 flex items-center text-stone-600 font-semibold text-sm cursor-pointer group-hover:text-stone-700">
+                            <span>View Details</span>
+                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="px-8 py-3 bg-gradient-to-r from-slate-600 via-neutral-600 to-stone-600 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                    <i class="fas fa-images mr-2"></i>
+                    View Full Gallery
+                </button>
             </div>
         </div>
     </section>
