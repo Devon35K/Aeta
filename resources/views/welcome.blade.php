@@ -32,17 +32,387 @@
     <!-- (removed forced hero scroll lock) -->
 
      <style>
-/* ---------------------------------------------------
-   RESET
---------------------------------------------------- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* -----------------------------------------
+   GLOBAL VARIABLES
+----------------------------------------- */
+:root {
+    --primary: #f1683a;
+    --primary-dark: #d45a2e;
+    --text-light: #ffffff;
+
+    /* Unified background */
+    --bg-dark: #000000;
+
+    /* Glass */
+    --glass: rgba(0, 0, 0, 0.55);
+    --blur: 12px;
+    --radius: 18px;
+
+    /* Motion */
+    --transition: 0.3s ease;
+
+    /* Shadow */
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* -----------------------------------------
+   GLOBAL RESET
+----------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(180deg, #f5ebe0 0%, #ede8dd 50%, #e8dfd5 100%);
-    color: #1f2937;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* -----------------------------------------
+   CONTAINER
+----------------------------------------- */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 640px) { .container { max-width: 640px; } }
+@media (min-width: 768px) { .container { max-width: 768px; } }
+@media (min-width: 1024px) { .container { max-width: 1024px; padding: 0 2rem; } }
+@media (min-width: 1280px) { .container { max-width: 1280px; } }
+
+/* -----------------------------------------
+   HEADER
+----------------------------------------- */
+header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 1rem 6%;
+    display: flex;
+    justify-content: flex-end;
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    gap: 2rem;
+}
+
+header a {
+    position: relative;
+    font-weight: 500;
+    padding-bottom: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+header a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition);
+}
+
+header a:hover::after {
+    width: 100%;
+}
+
+/* -----------------------------------------
+   CAROUSEL
+----------------------------------------- */
+.carousel {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+}
+
+/* Slides */
+.carousel .list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .list .item {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(22px);
+    transition: opacity .8s ease, transform .8s ease, filter .5s ease;
+    will-change: opacity, transform;
+}
+
+/* Images */
+.carousel .list .item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.65);
+    transition: transform 1.2s ease, filter 0.5s ease;
+}
+
+.carousel .list .item:hover img {
+    transform: scale(1.03);
+    filter: brightness(.75);
+}
+
+/* -----------------------------------------
+   SLIDE CONTENT
+----------------------------------------- */
+.carousel .content {
+    position: absolute;
+    top: 50%;
+    left: 7%;
+    padding: 2.5rem;
+    width: min(600px, 90%);
+    background: var(--glass);
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+
+    /* Only 1 transform definition (fixing bug) */
+    transform: translateY(-45%) translateX(-20px);
+    opacity: 0;
+    transition: all .6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel .list .item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.carousel .list .item.active .content {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* Typography */
+.carousel .content .author {
+    color: var(--primary);
+    font-size: .9rem;
+    margin-bottom: .6rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.carousel .content .title {
+    font-size: 3.3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: .5rem;
+    background: linear-gradient(90deg, #fff, #fca5a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.carousel .content .topic {
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.3rem;
+}
+
+.carousel .content .des {
+    line-height: 1.75;
+    opacity: .9;
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.carousel .buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.carousel .buttons button {
+    padding: .85rem 2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+
+.carousel .buttons button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, var(--primary), #ff8c66);
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+
+.carousel .buttons button:hover::before {
+    opacity: .9;
+}
+
+/* Primary */
+.carousel .buttons button:first-child {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(241,104,58,.4);
+}
+
+.carousel .buttons button:first-child:hover {
+    background: #e25829;
+    transform: translateY(-3px);
+}
+
+/* Secondary */
+.carousel .buttons button:last-child {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.carousel .buttons button:last-child:hover {
+    background: rgba(255,255,255,.15);
+}
+
+/* -----------------------------------------
+   THUMBNAIL STRIP
+----------------------------------------- */
+.thumbnail {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18px;
+    z-index: 50;
+}
+
+.thumbnail .item {
+    width: 200px;
+    height: 170px;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: .4s cubic-bezier(0.165,0.84,0.44,1);
+    background: rgba(0,0,0,.3);
+}
+
+.thumbnail .item:hover {
+    transform: translateY(-12px) scale(1.08);
+}
+
+.thumbnail .item.active {
+    border-color: var(--primary);
+}
+
+.thumbnail .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* -----------------------------------------
+   SLIDE ARROWS
+----------------------------------------- */
+.arrows {
+    position: fixed;
+    right: 5%;
+    bottom: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 60;
+}
+
+.arrows button {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.1);
+    border: 2px solid rgba(255,255,255,.25);
+    color: #fff;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: var(--transition);
+}
+
+.arrows button:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* -----------------------------------------
+   PROGRESS BAR
+----------------------------------------- */
+.progress-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,.1);
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary), #ff8c66);
+    transition: width .1s linear;
+}
+
+/* -----------------------------------------
+   ANIMATIONS
+----------------------------------------- */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(-50%); }
+}
+
+/* -----------------------------------------
+   RESPONSIVE
+----------------------------------------- */
+@media (max-width: 768px) {
+    .carousel .content {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+}
+
+/* Additional site styles retained */
 .nav-glass {
-    background: rgba(55, 65, 81, 0.75); /* slate-700 tint */
+    background: rgba(55, 65, 81, 0.75);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -59,258 +429,6 @@ body {
     border-radius: 10px;
     margin-top: 6px;
     box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
-
-/* ---------------------------------------------------
-   MAIN CAROUSEL WRAPPER
---------------------------------------------------- */
-.carousel {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-}
-
-/* ---------------------------------------------------
-   SLIDES
---------------------------------------------------- */
-.carousel .list {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.carousel .list .item {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-
-.carousel .list .item.active {
-    opacity: 1;
-    z-index: 2;
-}
-
-/* Background image */
-.carousel .list .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* ---------------------------------------------------
-   TEXT POP-UP ANIMATION (KEEPING AS YOU REQUESTED)
---------------------------------------------------- */
-.carousel .content {
-    position: absolute;
-    top: 50%;
-    left: 7%;
-    padding: 2.5rem;
-    width: min(600px, 90%);
-
-    /* Remove glass background */
-    background: transparent;
-    backdrop-filter: none;
-    border: none;
-    box-shadow: none;
-
-    /* Keep text animation */
-    transform: translateY(-45%) translateX(-20px);
-    opacity: 0;
-    transition: all .6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Keep active slide visible */
-.carousel .list .item.active .content {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-}
-
-.carousel .buttons {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-}
-
-.carousel .buttons button {
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.carousel .buttons button:first-child {
-    background: linear-gradient(45deg, #f97316, #f59e0b);
-    color: white;
-    border: 2px solid #f97316;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
-}
-
-.carousel .buttons button:first-child::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-    z-index: -1;
-}
-
-.carousel .buttons button:first-child:hover {
-    background: linear-gradient(45deg, #f97316, #f59e0b);
-    color: white;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.5);
-}
-
-.carousel .buttons button:first-child:hover::before {
-    left: 100%;
-}
-
-.carousel .buttons button:first-child:active {
-    transform: translateY(1px) scale(0.98);
-    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
-}
-
-.carousel .buttons button:last-child {
-    background: transparent;
-    border: 2px solid #fff;
-    color: white;
-    position: relative;
-    z-index: 1;
-}
-
-.carousel .buttons button:last-child::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    z-index: -1;
-    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.carousel .buttons button:last-child:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
-    box-shadow: 0 7px 20px rgba(255, 255, 255, 0.15);
-}
-
-.carousel .buttons button:last-child:hover::before {
-    width: 100%;
-}
-
-.carousel .buttons button:active {
-    transform: translateY(1px);
-    transition: transform 0.1s;
-}
-
-/* ---------------------------------------------------
-   CONTROLS (NEXT / PREV)
---------------------------------------------------- */
-.arrows {
-    position: absolute;
-    top: 50%;
-    right: 2%;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 10;
-}
-
-.arrows button {
-    width: 45px;
-    height: 45px;
-    border: none;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(4px);
-    cursor: pointer;
-    font-size: 20px;
-    color: #fff;
-    transition: 0.3s;
-}
-
-.arrows button:hover {
-    background: rgba(255,255,255,0.45);
-}
-
-/* ---------------------------------------------------
-   THUMBNAILS
---------------------------------------------------- */
-.thumbnail {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 8;
-}
-
-.thumbnail .item {
-    width: 90px;
-    height: 60px;
-    overflow: hidden;
-    opacity: 0.6;
-    transition: 0.3s;
-    cursor: pointer;
-    border-radius: 6px;
-}
-
-.thumbnail .item.active {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-.thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* ---------------------------------------------------
-   PROGRESS BAR (INDICATOR TO NEXT SLIDE)
---------------------------------------------------- */
-.progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    background: rgba(255,255,255,0.2);
-    z-index: 20;
-}
-
-.progress .bar {
-    height: 100%;
-    width: 0%;
-    background: #f97316; /* Orange */
-    transition: width linear;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .content { font-size: 14px; max-width: 300px; }
-    .arrows button { width: 38px; height: 38px; }
-    .thumbnail .item { width: 65px; height: 45px; }
 }
 
 /* Scroll reveal */
@@ -445,7 +563,7 @@ body {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
-</style>
+    </style>
 
 </head>
 
