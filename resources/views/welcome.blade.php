@@ -29,6 +29,8 @@
     
      <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <!-- (removed forced hero scroll lock) -->
+
      <style>
 /* ---------------------------------------------------
    RESET
@@ -455,6 +457,26 @@ body {
 
 
 <body class="bg-gray-50">
+    <!-- Hard reset to hero on load (clears any hash and scrolls to top repeatedly) -->
+    <script>
+        (() => {
+            const nukeHashAndTop = () => {
+                if (window.location.hash) {
+                    history.replaceState(null, '', window.location.pathname + window.location.search);
+                }
+                window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+            };
+            // Run early, on load, and after bfcache restores
+            nukeHashAndTop();
+            window.addEventListener('load', () => {
+                nukeHashAndTop();
+                setTimeout(nukeHashAndTop, 50);
+                setTimeout(nukeHashAndTop, 150);
+                setTimeout(nukeHashAndTop, 350);
+            });
+            window.addEventListener('pageshow', nukeHashAndTop);
+        })();
+    </script>
 
 
 
@@ -719,7 +741,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset('images/aeta-hero.jpg') }}');">
+    <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset('images/aeta-hero.jpg') }}');" aria-label="The Aeta People Hero">
         <!-- Wave Animation -->
         <div class="wave">
             <span></span>
@@ -765,6 +787,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
         
     </section>
+
+    <script>
+        // Force landing on hero: strip initial hash and repeatedly scroll to top during initial paint
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+        const resetToTop = () => {
+            if (window.location.hash) {
+                window.history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        };
+
+        // Run immediately and a few times during initial load to beat default anchor jumps
+        resetToTop();
+        document.addEventListener('DOMContentLoaded', () => {
+            resetToTop();
+            setTimeout(resetToTop, 0);
+            setTimeout(resetToTop, 100);
+            setTimeout(resetToTop, 300);
+        });
+        window.addEventListener('pageshow', resetToTop);
+    </script>
 
     <style>
     /* Firefly Animation */
