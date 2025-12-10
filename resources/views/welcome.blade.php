@@ -189,20 +189,106 @@ header a:hover::after {
 ----------------------------------------- */
 .carousel .content {
     position: absolute;
-    top: 50%;
-    left: 7%;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 2.5rem;
-    width: min(600px, 90%);
-    background: var(--glass);
-    backdrop-filter: blur(var(--blur));
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-
-    /* Only 1 transform definition (fixing bug) */
-    transform: translateY(-45%) translateX(-20px);
+    width: 1140px;
+    max-width: 80%;
+    background: rgba(31, 41, 55, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-align: center;
     opacity: 0;
     transition: all .6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive carousel content */
+@media screen and (max-width: 768px) {
+    .carousel .content {
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        padding: 1.5rem;
+        width: min(500px, 85%);
+        top: 15%;
+    }
+    
+    /* Hide navigation arrows on mobile */
+    .arrows {
+        display: none !important;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel .content {
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        padding: 0.75rem;
+        width: 95%;
+        top: 10%;
+    }
+    
+    /* Further optimize text sizes for very small screens */
+    .carousel .content .author {
+        font-size: 8px !important;
+        letter-spacing: 2px;
+    }
+    
+    .carousel .content .title {
+        font-size: 16px !important;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+    
+    .carousel .content .topic {
+        font-size: 14px !important;
+        margin-bottom: 0.75rem;
+    }
+    
+    .carousel .content .des {
+        font-size: 11px !important;
+        line-height: 1.3;
+        max-width: 280px;
+    }
+    
+    /* Optimize carousel height for mobile */
+    .carousel {
+        min-height: 70vh;
+        height: auto;
+    }
+    
+    .carousel .list .item img {
+        height: 70vh;
+        object-fit: cover;
+    }
+    
+    /* Reduce progress bar visibility on very small screens */
+    .progress-container {
+        height: 1px;
+        bottom: 5px;
+        left: 5px;
+        width: 70%;
+        opacity: 0.7;
+    }
+    
+    .progress-bar {
+        height: 1px;
+    }
+    
+    /* Hide navigation arrows on mobile */
+    .arrows {
+        display: none !important;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .carousel .list .item.active {
@@ -212,7 +298,7 @@ header a:hover::after {
 
 .carousel .list .item.active .content {
     opacity: 1;
-    transform: translateY(-50%) translateX(0);
+    transform: translateX(-50%);
 }
 
 /* Typography */
@@ -229,9 +315,7 @@ header a:hover::after {
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: .5rem;
-    background: linear-gradient(90deg, #fff, #fca5a5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
 }
 
 .carousel .content .topic {
@@ -648,7 +732,7 @@ header a:hover::after {
         </div>
 
         <!-- Mobile menu, show/hide based on menu state -->
-        <div class="md:hidden hidden transition-all duration-300 ease-in-out" id="mobile-menu">
+        <div class="md:hidden hidden transition-all duration-300" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 mobile-menu-glass rounded-b-xl border-t border-white/10">
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-700 transition-colors duration-200">Home</a>
                 <a href="#culture" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-700 transition-colors duration-200">Culture</a>
@@ -669,58 +753,59 @@ header a:hover::after {
 
 
 <!-- carousel -->
-<div class="carousel" style="margin-top: 0; position: relative; overflow: hidden;">
+<div class="carousel relative overflow-hidden">  
     <!-- Firefly Animation -->
     <div class="fireflies">
         <?php for($i = 0; $i < 15; $i++): ?>
         <div class="firefly"></div>
         <?php endfor; ?>
     </div>
+    
     <!-- list item -->
     <div class="list">
         <div class="item">
-            <img src="{{ asset('images/aeta1.jpg') }}" style="filter: brightness(0.4);">
-            <div class="content">
-                <div class="author">AETA PEOPLE</div>
-                <div class="title">INDIGENOUS FILIPINOS</div>
-                <div class="topic">CULTURE</div>
-                <div class="des">
+            <img src="{{ asset('images/aeta1.jpg') }}" class="w-full brightness-50">
+            <div class="content px-4 sm:px-6 lg:px-8 text-center">
+                <div class="author text-xs sm:text-sm font-bold tracking-widest mb-2">AETA PEOPLE</div>
+                <div class="title text-2xl sm:text-4xl lg:text-5xl font-bold mb-2">INDIGENOUS FILIPINOS</div>
+                <div class="topic text-lg sm:text-2xl lg:text-3xl mb-4">CULTURE</div>
+                <div class="des text-sm sm:text-base lg:text-lg max-w-xs sm:max-w-md lg:max-w-lg mx-auto">
                     The Aeta are among the earliest inhabitants of the Philippines, believed to have arrived over 30,000 years ago via land bridges. These indigenous people are characterized by their dark skin, curly hair, and short stature. They are among the most skilled hunters and gatherers in the country, with an intimate knowledge of the forest ecosystem.
                 </div>
                
             </div>
         </div>
         <div class="item">
-            <img src="{{ asset('images/aeta2.webp') }}">
-            <div class="content">
-                <div class="author">AETA PEOPLE</div>
-                <div class="title">TRADITIONAL LIVELIHOOD</div>
-                <div class="topic">SUSTENANCE</div>
-                <div class="des">
+            <img src="{{ asset('images/aeta2.webp') }}" class="w-full">
+            <div class="content px-4 sm:px-6 lg:px-8 text-center">
+                <div class="author text-xs sm:text-sm font-bold tracking-widest mb-2">AETA PEOPLE</div>
+                <div class="title text-2xl sm:text-4xl lg:text-5xl font-bold mb-2">TRADITIONAL LIVELIHOOD</div>
+                <div class="topic text-lg sm:text-2xl lg:text-3xl mb-4">SUSTENANCE</div>
+                <div class="des text-sm sm:text-base lg:text-lg max-w-xs sm:max-w-md lg:max-w-lg mx-auto">
                     Aeta communities traditionally practice hunting, fishing, and gathering. Men hunt wild animals using bows and arrows, while women gather root crops, fruits, and medicinal plants. Some groups practice swidden farming (kaingin). They are renowned for their expertise in herbal medicine and their ability to utilize hundreds of forest plants for food, medicine, and shelter.
                 </div>
                
             </div>
         </div>
         <div class="item">
-            <img src="{{ asset('images/aeta3.webp') }}" style="filter: brightness(0.4);">
-            <div class="content">
-                <div class="author">AETA PEOPLE</div>
-                <div class="title">CULTURAL HERITAGE</div>
-                <div class="topic">TRADITIONS</div>
-                <div class="des">
+            <img src="{{ asset('images/aeta3.webp') }}" class="w-full brightness-50">
+            <div class="content px-4 sm:px-6 lg:px-8 text-center">
+                <div class="author text-xs sm:text-sm font-bold tracking-widest mb-2">AETA PEOPLE</div>
+                <div class="title text-2xl sm:text-4xl lg:text-5xl font-bold mb-2">CULTURAL HERITAGE</div>
+                <div class="topic text-lg sm:text-2xl lg:text-3xl mb-4">TRADITIONS</div>
+                <div class="des text-sm sm:text-base lg:text-lg max-w-xs sm:max-w-md lg:max-w-lg mx-auto">
                     Aeta culture is rich with oral traditions, including epic stories, myths, and legends passed down through generations. They have unique musical instruments like the bamboo zither and nose flute. Traditional dances often imitate animal movements or depict hunting scenes. Their spiritual beliefs center around nature spirits (anito), and they have traditional healers (herbolarios) who perform rituals for healing and protection.
                 </div>
               
             </div>
         </div>
         <div class="item">
-            <img src="{{ asset('images/aeta4.jpg') }}">
-            <div class="content">
-                <div class="author">AETA PEOPLE</div>
-                <div class="title">MODERN CHALLENGES</div>
-                <div class="topic">RESILIENCE</div>
-                <div class="des">
+            <img src="{{ asset('images/aeta4.jpg') }}" class="w-full">
+            <div class="content px-4 sm:px-6 lg:px-8 text-center">
+                <div class="author text-xs sm:text-sm font-bold tracking-widest mb-2">AETA PEOPLE</div>
+                <div class="title text-2xl sm:text-4xl lg:text-5xl font-bold mb-2">MODERN CHALLENGES</div>
+                <div class="topic text-lg sm:text-2xl lg:text-3xl mb-4">RESILIENCE</div>
+                <div class="des text-sm sm:text-base lg:text-lg max-w-xs sm:max-w-md lg:max-w-lg mx-auto">
                     Today, the Aeta face numerous challenges including displacement from ancestral lands due to deforestation, mining, and commercial agriculture. Many have been forced to adapt to settled farming or low-wage labor. Despite these pressures, Aeta communities continue to fight for land rights, cultural preservation, and access to education and healthcare while maintaining their distinct identity and traditional knowledge.
                 </div>
             
@@ -747,7 +832,7 @@ header a:hover::after {
                 <path d="M9 18l6-6-6-6"/>
             </svg>
         </button>
-    </div>
+    </div>  
 </div>
 
 <script>
@@ -760,6 +845,42 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     const slideDuration = 8000; // 8 seconds
     let timer;
+    let lastScrollTop = 0;
+    let hideArrowsTimeout;
+
+    // Hide/show carousel arrows on scroll
+    function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const arrows = document.querySelector('.arrows');
+        
+        if (arrows) {
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - hide arrows
+                arrows.style.opacity = '0';
+                arrows.style.pointerEvents = 'none';
+                arrows.style.transition = 'opacity 0.3s ease';
+            } else {
+                // Scrolling up or near top - show arrows
+                arrows.style.opacity = '1';
+                arrows.style.pointerEvents = 'auto';
+                arrows.style.transition = 'opacity 0.3s ease';
+            }
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }
+
+    // Throttle scroll events
+    let scrollThrottle = false;
+    window.addEventListener('scroll', function() {
+        if (!scrollThrottle) {
+            handleScroll();
+            scrollThrottle = true;
+            setTimeout(function() {
+                scrollThrottle = false;
+            }, 100);
+        }
+    });
 
     function showSlide(index) {
         currentIndex = (index + items.length) % items.length;
@@ -1152,7 +1273,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-6xl mx-auto space-y-10">
                 <div class="text-center">
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-2 tracking-tight">Who are the Aeta?</h2>
+                    <h2 class="text-4xl font-bold mb-2 tracking-tight text-gray-700">Who are the Aeta?</h2>
                 </div>
 
                   <!-- Text Intro (placed below cards) -->
@@ -1363,13 +1484,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="space-y-6">
                         <div class="flex items-start justify-between">
                             <div>
-                                <h3 class="text-3xl font-bold text-stone-900 flex items-center gap-3">
+                                <h3 class="text-3xl font-bold text-gray-700 flex items-center gap-3">
                                     <i class="fas fa-mountain text-amber-700"></i>
                                     Traditional Territories
                                 </h3>
                                 <p class="text-gray-700 mt-2 leading-relaxed text-lg">Tap a region to zoom the map, view its outline, and see a photo.</p>
                             </div>
-                            <button type="button" id="reset-map" class="px-3 py-2 text-sm bg-stone-700 text-white rounded-lg hover:bg-stone-800 transition-colors shadow">
+                            <button type="button" id="reset-map" class="px-3 py-2 text-sm bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition-colors shadow">
                                 <i class="fas fa-expand mr-1"></i>
                                 Full View
                             </button>
@@ -1379,31 +1500,31 @@ document.addEventListener('DOMContentLoaded', function() {
                             <button type="button" class="flex items-center justify-between p-3 text-left bg-stone-50 rounded-lg border border-stone-200 hover:bg-stone-100 transition-all focus:ring-2 focus:ring-stone-400 focus:outline-none location-btn group" data-name="Zambales Mountains" data-lat="15.5" data-lng="120.1466" data-zoom="9">
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-stone-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-stone-900">Zambales Mountains</span>
+                                    <span class="font-semibold text-gray-700">Zambales Mountains</span>
                                 </div>
                             </button>
                             <button type="button" class="flex items-center justify-between p-3 text-left bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-all focus:ring-2 focus:ring-slate-400 focus:outline-none location-btn group" data-name="Sierra Madre Mountain Range" data-lat="16.4" data-lng="121.4" data-zoom="8.5">
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-slate-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-slate-900">Sierra Madre Mountain Range</span>
+                                    <span class="font-semibold text-gray-700">Sierra Madre Mountain Range</span>
                                 </div>
                             </button>
                             <button type="button" class="flex items-center justify-between p-3 text-left bg-neutral-50 rounded-lg border border-neutral-200 hover:bg-neutral-100 transition-all focus:ring-2 focus:ring-neutral-400 focus:outline-none location-btn group" data-name="Bataan Peninsula" data-lat="14.68" data-lng="120.33" data-zoom="10">
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-neutral-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-neutral-900">Bataan Peninsula</span>
+                                    <span class="font-semibold text-gray-700">Bataan Peninsula</span>
                                 </div>
                             </button>
                             <button type="button" class="flex items-center justify-between p-3 text-left bg-stone-50 rounded-lg border border-stone-200 hover:bg-stone-100 transition-all focus:ring-2 focus:ring-stone-400 focus:outline-none location-btn group" data-name="Pampanga &amp; Tarlac" data-lat="15.35" data-lng="120.65" data-zoom="9.5">
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-stone-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-stone-900">Pampanga &amp; Tarlac</span>
+                                    <span class="font-semibold text-gray-700">Pampanga & Tarlac</span>
                                 </div>
                             </button>
                             <button type="button" class="flex items-center justify-between p-3 text-left bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-all focus:ring-2 focus:ring-slate-400 focus:outline-none location-btn group" data-name="Bicol Region" data-lat="13.3" data-lng="123.5" data-zoom="8.5">
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-slate-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-slate-900">Bicol Region</span>
+                                    <span class="font-semibold text-gray-700">Bicol Region</span>
                                 </div>
                             </button>
                         </div>

@@ -30,9 +30,9 @@ header a{
 
 /* carousel */
 .carousel{
-    height: 100vh;
-    margin-top: -50px;
-    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -57,10 +57,18 @@ header a{
     max-width: 80%;
     left: 50%;
     transform: translateX(-50%);
-    padding-right: 30%;
+    padding: 2.5rem;
+    background: rgba(31, 41, 55, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     box-sizing: border-box;
     color: #fff;
-    text-shadow: 0 5px 10px #0004;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-align: center;
+    opacity: 0;
+    transition: all .6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel .list .item .author{
@@ -72,6 +80,7 @@ header a{
 .carousel .list .item .topic{
     font-size: 5em;
     font-weight: bold;
+    color: #fff;
     line-height: 1.3em;
 }
 
@@ -147,13 +156,25 @@ header a{
 .arrows{
     position: absolute;
     top: 80%;
-    right: 52%;
-    z-index: 100;
-    width: 300px;
-    max-width: 30%;
-    display: flex;
-    gap: 10px;
-    align-items: center;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 40px;
+    pointer-events: none;
+}
+
+.arrows button#prev {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    pointer-events: auto;
+}
+
+.arrows button#next {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    pointer-events: auto;
 }
 
 .arrows button{
@@ -333,10 +354,122 @@ header a{
 
 @media screen and (max-width: 678px) {
     .carousel .list .item .content{
-        padding-right: 0;
+        padding: 10px;
+        width: 90%;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
     }
     
     .carousel .list .item .content .title{
-        font-size: 30px;
+        font-size: 24px;
+        line-height: 1.2;
     }
+    
+    .carousel .list .item .content .topic{
+        font-size: 18px;
+    }
+    
+    .carousel .list .item .content .author{
+        font-size: 10px;
+    }
+    
+    .carousel .list .item .content .des{
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0 auto;
+    }
+    
+    .carousel .list .item img {
+        object-fit: cover;
+        height: 60vh;
+    }
+    
+    /* Hide navigation arrows on mobile */
+    .arrows {
+        display: none;
+    }
+    
+    /* Make progress bar responsive on mobile */
+    .progress-container {
+        height: 2px;
+        bottom: 10px;
+        left: 10px;
+        width: 80%;
+    }
+    
+    .progress-bar {
+        height: 2px;
+    }
+    
+    /* Optimize carousel for mobile */
+    .carousel {
+        min-height: 60vh;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel .list .item .content{
+        padding: 8px;
+        width: 95%;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    
+    .carousel .list .item .content .title{
+        font-size: 20px;
+        line-height: 1.1;
+    }
+    
+    .carousel .list .item .content .topic{
+        font-size: 16px;
+    }
+    
+    .carousel .list .item .content .author{
+        font-size: 8px;
+    }
+    
+    .carousel .list .item .content .des{
+        font-size: 12px;
+        line-height: 1.3;
+        margin: 0 auto;
+        max-width: 280px;
+    }
+    
+    .carousel .list .item img {
+        height: 50vh;
+        object-fit: cover;
+    }
+    
+    /* Hide navigation arrows on mobile */
+    .arrows {
+        display: none;
+    }
+    
+    /* Make progress bar responsive on mobile */
+    .progress-container {
+        height: 1px;
+        bottom: 5px;
+        left: 5px;
+        width: 70%;
+        opacity: 0.7;
+    }
+    
+    .progress-bar {
+        height: 1px;
+    }
+    
+    /* Further optimize carousel for very small screens */
+    .carousel {
+        min-height: 50vh;
+        height: auto;
+    }
+}
+
+.carousel .list .item img{
+    object-fit: contain;
 }
