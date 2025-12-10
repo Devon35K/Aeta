@@ -43,6 +43,9 @@ ENV APP_ENV=production \
 COPY --from=vendor /app /var/www/html
 COPY --from=assets /app/public/build /var/www/html/public/build
 
+# Ensure SQLite file exists (for sqlite/session/database drivers)
+RUN mkdir -p database && touch database/database.sqlite
+
 # Permissions for storage and cache
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
