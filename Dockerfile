@@ -13,7 +13,8 @@ RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-interacti
 # 2) Build front-end assets (Vite)
 FROM node:20-alpine AS assets
 WORKDIR /app
-COPY package.json package-lock.json* ./
+# Copy package manifests (handles absence of package-lock gracefully)
+COPY package*.json ./
 RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 COPY resources ./resources
 COPY vite.config.js .
