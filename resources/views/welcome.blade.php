@@ -1505,7 +1505,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     center: [120.1466, 15.5],
                     zoom: 9,
                     polygon: [
-                        [119.9, 15.2], [120.35, 15.2], [120.35, 15.8], [119.9, 15.8], [119.9, 15.2]
+                        [119.88, 15.0], [120.05, 14.95], [120.28, 15.25], [120.35, 15.55],
+                        [120.26, 15.95], [120.05, 16.05], [119.88, 15.8], [119.82, 15.5],
+                        [119.88, 15.0]
                     ],
                     img: "{{ asset('images/aeta1.jpg') }}",
                     blurb: 'Aeta communities in the Zambales range with forested foothills.'
@@ -1514,7 +1516,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     center: [121.4, 16.4],
                     zoom: 8.5,
                     polygon: [
-                        [120.9, 15.6], [121.9, 15.6], [121.9, 17.0], [120.9, 17.0], [120.9, 15.6]
+                        [121.2, 17.4], [122.1, 17.0], [122.4, 16.1], [122.1, 15.2],
+                        [122.05, 14.6], [121.6, 14.3], [121.1, 14.6], [120.95, 15.3],
+                        [121.05, 16.0], [121.2, 17.4]
                     ],
                     img: "{{ asset('images/aeta2.webp') }}",
                     blurb: 'Spanning Luzon’s eastern spine with dense forests and rivers.'
@@ -1523,7 +1527,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     center: [120.33, 14.68],
                     zoom: 10,
                     polygon: [
-                        [120.1, 14.45], [120.55, 14.45], [120.55, 14.9], [120.1, 14.9], [120.1, 14.45]
+                        [120.22, 14.47], [120.45, 14.40], [120.62, 14.55], [120.62, 14.77],
+                        [120.52, 14.95], [120.35, 14.95], [120.20, 14.80], [120.22, 14.47]
                     ],
                     img: "{{ asset('images/aeta3.webp') }}",
                     blurb: 'Peninsula landscapes overlooking West Philippine Sea.'
@@ -1532,7 +1537,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     center: [120.65, 15.35],
                     zoom: 9.5,
                     polygon: [
-                        [120.3, 15.0], [121.0, 15.0], [121.0, 15.7], [120.3, 15.7], [120.3, 15.0]
+                        [120.33, 15.01], [120.63, 14.95], [120.88, 15.05], [121.05, 15.36],
+                        [120.95, 15.67], [120.70, 15.85], [120.42, 15.78], [120.28, 15.50],
+                        [120.33, 15.01]
                     ],
                     img: "{{ asset('images/aeta4.jpg') }}",
                     blurb: 'Heartland plains with nearby uplands and river systems.'
@@ -1541,7 +1548,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     center: [123.5, 13.3],
                     zoom: 8.5,
                     polygon: [
-                        [122.8, 12.7], [124.2, 12.7], [124.2, 13.9], [122.8, 13.9], [122.8, 12.7]
+                        [122.6, 12.7], [123.3, 12.5], [124.2, 12.9], [124.3, 13.4],
+                        [124.1, 13.9], [123.4, 14.1], [122.8, 13.9], [122.6, 13.2],
+                        [122.6, 12.7]
                     ],
                     img: "{{ asset('images/aeta2.webp') }}",
                     blurb: 'Southern Luzon range and volcanic slopes.'
