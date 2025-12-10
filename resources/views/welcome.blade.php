@@ -687,18 +687,7 @@ header a:hover::after {
                 <div class="des">
                     The Aeta are among the earliest inhabitants of the Philippines, believed to have arrived over 30,000 years ago via land bridges. These indigenous people are characterized by their dark skin, curly hair, and short stature. They are among the most skilled hunters and gatherers in the country, with an intimate knowledge of the forest ecosystem.
                 </div>
-                <div class="buttons">
-                    <button class="group relative overflow-hidden">
-    <span class="relative z-10 flex items-center justify-center">
-        <i class="fas fa-book-open mr-2 group-hover:animate-bounce"></i>
-        <span class="font-bold">LEARN MORE</span>
-    </span>
-    <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-</button>
-<button class="group">
-    <i class="fas fa-hands-helping mr-2 group-hover:rotate-12 transition-transform"></i>SUPPORT US
-</button>
-                </div>
+               
             </div>
         </div>
         <div class="item">
@@ -710,18 +699,7 @@ header a:hover::after {
                 <div class="des">
                     Aeta communities traditionally practice hunting, fishing, and gathering. Men hunt wild animals using bows and arrows, while women gather root crops, fruits, and medicinal plants. Some groups practice swidden farming (kaingin). They are renowned for their expertise in herbal medicine and their ability to utilize hundreds of forest plants for food, medicine, and shelter.
                 </div>
-                <div class="buttons">
-                    <button class="group relative overflow-hidden">
-    <span class="relative z-10 flex items-center justify-center">
-        <i class="fas fa-book-open mr-2 group-hover:animate-bounce"></i>
-        <span class="font-bold">LEARN MORE</span>
-    </span>
-    <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-</button>
-<button class="group">
-    <i class="fas fa-hands-helping mr-2 group-hover:rotate-12 transition-transform"></i>SUPPORT US
-</button>
-                </div>
+               
             </div>
         </div>
         <div class="item">
@@ -733,18 +711,7 @@ header a:hover::after {
                 <div class="des">
                     Aeta culture is rich with oral traditions, including epic stories, myths, and legends passed down through generations. They have unique musical instruments like the bamboo zither and nose flute. Traditional dances often imitate animal movements or depict hunting scenes. Their spiritual beliefs center around nature spirits (anito), and they have traditional healers (herbolarios) who perform rituals for healing and protection.
                 </div>
-                <div class="buttons">
-                    <button class="group relative overflow-hidden">
-    <span class="relative z-10 flex items-center justify-center">
-        <i class="fas fa-book-open mr-2 group-hover:animate-bounce"></i>
-        <span class="font-bold">LEARN MORE</span>
-    </span>
-    <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-</button>
-<button class="group">
-    <i class="fas fa-hands-helping mr-2 group-hover:rotate-12 transition-transform"></i>SUPPORT US
-</button>
-                </div>
+              
             </div>
         </div>
         <div class="item">
@@ -756,17 +723,8 @@ header a:hover::after {
                 <div class="des">
                     Today, the Aeta face numerous challenges including displacement from ancestral lands due to deforestation, mining, and commercial agriculture. Many have been forced to adapt to settled farming or low-wage labor. Despite these pressures, Aeta communities continue to fight for land rights, cultural preservation, and access to education and healthcare while maintaining their distinct identity and traditional knowledge.
                 </div>
-                <div class="buttons">
-                    <button class="group relative overflow-hidden">
-    <span class="relative z-10 flex items-center justify-center">
-        <i class="fas fa-book-open mr-2 group-hover:animate-bounce"></i>
-        <span class="font-bold">LEARN MORE</span>
-    </span>
-    <span class="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-</button>
-<button class="group">
-    <i class="fas fa-hands-helping mr-2 group-hover:rotate-12 transition-transform"></i>SUPPORT US
-</button>
+            
+  
                 </div>
             </div>
         </div>
