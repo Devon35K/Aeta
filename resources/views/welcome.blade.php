@@ -214,7 +214,7 @@ header a:hover::after {
         transform: translateY(-50%) translateX(-50%);
         padding: 1.5rem;
         width: min(500px, 85%);
-        top: 15%;
+        top: 18%;
     }
     
     /* Hide navigation arrows on mobile */
@@ -494,6 +494,14 @@ header a:hover::after {
     }
 }
 
+/* Tablet / medium screens: keep content a bit lower and well centered */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .carousel .content {
+        top: 24%;
+        max-width: 75%;
+    }
+}
+
 /* Additional site styles retained */
 .nav-glass {
     background: rgba(55, 65, 81, 0.75);
@@ -701,58 +709,33 @@ header a:hover::after {
 
 
     <!-- Top Navigation -->
-    <nav class="fixed top-0 left-0 right-0 text-white shadow-lg z-50 transition-all duration-300 nav-glass" id="main-nav">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed top-0 left-0 right-0 text-white shadow-lg z-50 nav-glass" id="main-nav">
+
+        <div class="w-full h-full px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
-                <a href="#home" class="text-2xl font-bold text-white hover:text-amber-200 transition-colors"><i class="fas fa-leaf text-amber-300 mr-2"></i>Aeta Heritage</a>
+                <a href="#home" class="text-2xl font-bold text-white hover:text-amber-200"><i class="fas fa-leaf text-amber-300 mr-2"></i>Aeta Heritage</a>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-1">
-                    <a href="#home" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800 transition-colors duration-200">Home</a>
-                    <a href="#culture" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800 transition-colors duration-200">Culture</a>
-                    <a href="#history" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800 transition-colors duration-200">History</a>
-                    <a href="#geography" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800 transition-colors duration-200">Geography</a>
-                    <a href="#gallery" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800 transition-colors duration-200">Gallery</a>
+                    <a href="/" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800">Home</a>
+                    <a href="/#culture" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800">Culture</a>
+                    <a href="/#history" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800">History</a>
+                    <a href="#geography" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800">Geography</a>
+                    <a href="/#gallery" class="px-4 py-2 rounded-md text-sm font-medium text-white hover:bg-amber-800">Gallery</a>
                 </div>
 
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-amber-200 hover:text-white hover:bg-amber-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-amber-900 focus:ring-white transition-colors" 
-                            aria-expanded="false" id="mobile-menu-button" aria-haspopup="true">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
                 </div>
-            </div>
         </div>
 
-        <!-- Mobile menu, show/hide based on menu state -->
-        <div class="md:hidden hidden transition-all duration-300" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 mobile-menu-glass rounded-b-xl border-t border-white/10">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-700 transition-colors duration-200">Home</a>
-                <a href="#culture" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-700 transition-colors duration-200">Culture</a>
-                <a href="#history" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-700 transition-colors duration-200">History</a>
-                <a href="#geography" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-700 transition-colors duration-200">Geography</a>
-                <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-700 transition-colors duration-200">Gallery</a>
-            </div>
-        </div>
+        
     </nav>
 
-    <!-- Main content wrapper -->
+  
     <div>
 
 
 
-
-
-
-
-<!-- carousel -->
+    <!-- carousel -->
 <div class="carousel relative overflow-hidden">  
     <!-- Firefly Animation -->
     <div class="fireflies">
@@ -765,7 +748,7 @@ header a:hover::after {
     <div class="list">
         <div class="item">
             <img src="{{ asset('images/aeta1.jpg') }}" class="w-full brightness-50">
-            <div class="content px-4 sm:px-6 lg:px-8 text-center">
+            <div class="content px-4 sm:px-6 lg:px-8 text-center mt-40 sm:mt-48 lg:mt-56">
                 <div class="author text-xs sm:text-sm font-bold tracking-widest mb-2">AETA PEOPLE</div>
                 <div class="title text-2xl sm:text-4xl lg:text-5xl font-bold mb-2">INDIGENOUS FILIPINOS</div>
                 <div class="topic text-lg sm:text-2xl lg:text-3xl mb-4">CULTURE</div>
@@ -776,15 +759,20 @@ header a:hover::after {
             </div>
         </div>
         <div class="item">
-            <img src="{{ asset('images/aeta2.webp') }}" class="w-full">
+            <img src="{{ asset('images/aeta2.webp') }}" class="w-full brightness-50 object-cover" alt="Aeta community engaged in traditional livelihood activities">
             <div class="content px-4 sm:px-6 lg:px-8 text-center">
-                <div class="author text-xs sm:text-sm font-bold tracking-widest mb-2">AETA PEOPLE</div>
-                <div class="title text-2xl sm:text-4xl lg:text-5xl font-bold mb-2">TRADITIONAL LIVELIHOOD</div>
-                <div class="topic text-lg sm:text-2xl lg:text-3xl mb-4">SUSTENANCE</div>
-                <div class="des text-sm sm:text-base lg:text-lg max-w-xs sm:max-w-md lg:max-w-lg mx-auto">
+                <div class="author text-[10px] sm:text-xs md:text-sm font-bold tracking-widest mb-2">
+                    AETA PEOPLE
+                </div>
+                <div class="title text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 leading-snug md:leading-tight">
+                    TRADITIONAL LIVELIHOOD
+                </div>
+                <div class="topic text-base sm:text-xl md:text-2xl lg:text-3xl mb-4">
+                    SUSTENANCE
+                </div>
+                <div class="des text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto">
                     Aeta communities traditionally practice hunting, fishing, and gathering. Men hunt wild animals using bows and arrows, while women gather root crops, fruits, and medicinal plants. Some groups practice swidden farming (kaingin). They are renowned for their expertise in herbal medicine and their ability to utilize hundreds of forest plants for food, medicine, and shelter.
                 </div>
-               
             </div>
         </div>
         <div class="item">
@@ -971,10 +959,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 Preserving the Rich Cultural Heritage of the Indigenous People of Luzon
             </p>
             
-            <a href="#culture" class="group relative inline-block">
+            <a href="/traditions-culture" class="group relative inline-block">
                 <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 to-amber-800 rounded-full opacity-75 group-hover:opacity-100 transition-all duration-300 blur-sm group-hover:blur"></div>
                 <span class="relative z-10 bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 inline-flex items-center group-hover:px-10 group-hover:py-4">
-                    <span class="mr-2">Explore Culture</span>
+                    <span class="mr-2">Explore Culture & Traditions</span>
                     <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
@@ -1267,26 +1255,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     </style>
-    
-    <!-- Introduction: Who are the Aeta? -->
-    <section id="about-aeta" class="py-20 bg-gradient-to-br from-[#f5ebe0] via-[#ede8dd] to-[#e8dfd5] relative overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="max-w-6xl mx-auto space-y-10">
-                <div class="text-center">
-                    <h2 class="text-4xl font-bold mb-2 tracking-tight text-gray-700">Who are the Aeta?</h2>
-                </div>
-
-                  <!-- Text Intro (placed below cards) -->
-                <div class="text-center max-w-4xl mx-auto space-y-2" id="about-aeta-intro"></div>
-
-                <!-- Key Aspects Cards (dynamic) -->
-                <div id="about-aeta-cards" class="grid sm:grid-cols-2 gap-6"></div>
-
-              
-            </div>
-        </div>
-    </section>
-
 
     <!-- Culture Section -->
     <section id="culture" class="py-24 bg-gradient-to-br from-[#f5ebe0] via-[#ede8dd] to-[#e8dfd5] relative overflow-hidden">
@@ -1328,11 +1296,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p class="text-gray-600 leading-relaxed mb-6">The Aeta live in small, kin-based groups with strong communal bonds. Their social structure is egalitarian, with decisions often made through group consensus.</p>
                             
                             <!-- Enhanced Learn More Button -->
-                            <button class="group/btn relative inline-flex items-center gap-2 text-[#2d5016] font-semibold overflow-hidden">
-                                <span class="relative z-10 group-hover/btn:text-white transition-colors duration-300">Explore More</span>
+                            <a href="/traditions-culture" class="group/btn relative inline-flex items-center gap-2 text-gray-700 font-semibold overflow-hidden">
+                                <span class="relative z-10 group-hover/btn:text-white transition-colors duration-300">Explore Traditions</span>
                                 <i class="fas fa-arrow-right relative z-10 transform group-hover:translate-x-2 group-hover/btn:text-white transition-all duration-300"></i>
                                 <div class="absolute inset-0 bg-gradient-to-r from-[#2d5016] to-[#3d6b1f] transform scale-x-0 group-hover/btn:scale-x-100 origin-left transition-transform duration-300 rounded-lg -z-0"></div>
-                            </button>
+                            </a>
                         </div>
 
                         <!-- Bottom Decorative Line -->
@@ -1362,11 +1330,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p class="text-gray-600 leading-relaxed mb-6">Aeta cuisine is based on foraged foods, including wild yams, fruits, and game. They are known for their knowledge of edible plants and traditional cooking methods.</p>
                             
                             <!-- Enhanced Learn More Button -->
-                            <button class="group/btn relative inline-flex items-center gap-2 text-[#7a9f35] font-semibold overflow-hidden">
-                                <span class="relative z-10 group-hover/btn:text-white transition-colors duration-300">Explore More</span>
+                            <a href="/traditions-culture" class="group/btn relative inline-flex items-center gap-2 text-gray-700 font-semibold overflow-hidden">
+                                <span class="relative z-10 group-hover/btn:text-white transition-colors duration-300">Explore Traditions</span>
                                 <i class="fas fa-arrow-right relative z-10 transform group-hover:translate-x-2 group-hover/btn:text-white transition-all duration-300"></i>
                                 <div class="absolute inset-0 bg-gradient-to-r from-[#b4d555] to-[#a3c545] transform scale-x-0 group-hover/btn:scale-x-100 origin-left transition-transform duration-300 rounded-lg -z-0"></div>
-                            </button>
+                            </a>
                         </div>
 
                         <!-- Bottom Decorative Line -->
@@ -1396,11 +1364,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p class="text-gray-600 leading-relaxed mb-6">Traditional Aeta music features bamboo instruments and rhythmic chants. Their dances often depict daily activities and are performed during celebrations.</p>
                             
                             <!-- Enhanced Learn More Button -->
-                            <button class="group/btn relative inline-flex items-center gap-2 text-[#b85450] font-semibold overflow-hidden">
-                                <span class="relative z-10 group-hover/btn:text-white transition-colors duration-300">Explore More</span>
+                            <a href="/traditions-culture" class="group/btn relative inline-flex items-center gap-2 text-gray-700 font-semibold overflow-hidden">
+                                <span class="relative z-10 group-hover/btn:text-white transition-colors duration-300">Explore Traditions</span>
                                 <i class="fas fa-arrow-right relative z-10 transform group-hover:translate-x-2 group-hover/btn:text-white transition-all duration-300"></i>
                                 <div class="absolute inset-0 bg-gradient-to-r from-[#b85450] to-[#a84844] transform scale-x-0 group-hover/btn:scale-x-100 origin-left transition-transform duration-300 rounded-lg -z-0"></div>
-                            </button>
+                            </a>
                         </div>
 
                         <!-- Bottom Decorative Line -->
@@ -1421,8 +1389,10 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-500 mb-4">Historical Journey</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-400 mx-auto rounded-full"></div>
+                <a href="/historical-journey" class="group inline-block">
+                    <h2 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-500 mb-4 group-hover:from-primary group-hover:to-secondary transition-all duration-300 cursor-pointer">Historical Journey</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-400 mx-auto rounded-full group-hover:from-primary group-hover:to-secondary transition-all duration-300"></div>
+                </a>
             </div>
             <div class="max-w-6xl mx-auto">
                 <div class="relative">
@@ -1554,6 +1524,130 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </section>
 
+<!-- Additional Information Sections -->
+<section class="py-16 px-4 bg-gradient-to-br from-[#f5ebe0] via-[#ede8dd] to-[#e8dfd5]">
+    <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Aeta Life & Culture</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-gray-600 to-gray-400 mx-auto rounded-full"></div>
+            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                Explore the traditional livelihood, cultural practices, and contemporary challenges of the Aeta people
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Livelihood & Economy -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
+                <div class="text-4xl mb-6 text-center">💼</div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800 text-center">Livelihood & Economy</h3>
+                <p class="text-gray-600 leading-relaxed mb-6 text-center">
+                    Traditional Aeta economy centers on hunting, gathering, and swidden farming. Men hunt wild game using bows and arrows, while women gather edible plants, fruits, and medicinal herbs. Some communities practice small-scale agriculture and engage in traditional craftsmanship.
+                </p>
+                <div class="text-center">
+                    <a href="/livelihood" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full hover:from-gray-700 hover:to-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <span>Explore More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Traditional Practices -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
+                <div class="text-4xl mb-6 text-center">🎭</div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800 text-center">Traditional Practices</h3>
+                <p class="text-gray-600 leading-relaxed mb-6 text-center">
+                    Aeta cultural practices include oral traditions, epic storytelling, traditional music with bamboo instruments, and ceremonial dances. Spiritual beliefs center around nature spirits and ancestral worship, with traditional healers playing vital roles in community health and rituals.
+                </p>
+                <div class="text-center">
+                    <a href="/livelihood" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full hover:from-gray-700 hover:to-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <span>Explore More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Modern Challenges -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300">
+                <div class="text-4xl mb-6 text-center">🌍</div>
+                <h3 class="text-2xl font-bold mb-4 text-gray-800 text-center">Modern Challenges</h3>
+                <p class="text-gray-600 leading-relaxed mb-6 text-center">
+                    Contemporary Aeta communities face displacement from ancestral lands, cultural assimilation pressures, and limited access to education and healthcare. Despite these challenges, they continue advocating for land rights, and sustainable development.
+                </p>
+                <div class="text-center">
+                    <a href="/livelihood" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full hover:from-gray-700 hover:to-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <span>Explore More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Quick Facts Section -->
+<section class="py-16 px-4 bg-gradient-to-br from-amber-50 to-orange-50">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Quick Facts</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Fact 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="text-3xl mb-4">🏛️</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Ancient Heritage</h3>
+                <p class="text-gray-600">Among the earliest inhabitants of the Philippines, arriving over 30,000 years ago</p>
+            </div>
+            
+            <!-- Fact 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="text-3xl mb-4">🌳</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Forest Experts</h3>
+                <p class="text-gray-600">Master hunters and gatherers with intimate knowledge of forest ecosystems</p>
+            </div>
+            
+            <!-- Fact 3 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="text-3xl mb-4">🏹</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Traditional Skills</h3>
+                <p class="text-gray-600">Skilled in bow hunting, herbal medicine, and sustainable forest living</p>
+            </div>
+            
+            <!-- Fact 4 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="text-3xl mb-4">🎭</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Rich Culture</h3>
+                <p class="text-gray-600">Oral traditions, unique music, and spiritual beliefs centered around nature</p>
+            </div>
+        </div>
+        
+        <!-- Additional Facts Row -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <!-- Fact 5 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="text-3xl mb-4">📍</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Geographic Range</h3>
+                <p class="text-gray-600">Primarily found in Luzon provinces: Zambales, Tarlac, Pampanga, and Bicol</p>
+            </div>
+            
+            <!-- Fact 6 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="text-3xl mb-4">👥</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Population</h3>
+                <p class="text-gray-600">Estimated 20,000-50,000 Aeta people remaining in the Philippines</p>
+            </div>
+            
+            <!-- Fact 7 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                <div class="text-3xl mb-4">🛡️</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Modern Challenges</h3>
+                <p class="text-gray-600">Facing displacement while fighting for land rights and cultural preservation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Gallery Section -->
     <section id="gallery" class="py-20 bg-gradient-to-br from-[#f5ebe0] via-[#ede8dd] to-[#e8dfd5] relative overflow-hidden">
         <div class="absolute inset-0 opacity-5">
@@ -1620,10 +1714,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
             <div class="text-center mt-12">
-                <button class="px-8 py-3 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                <a href="/aeta" class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                     <i class="fas fa-images mr-2"></i>
                     View Full Gallery
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -1640,8 +1734,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div>
                     <h4 class="text-lg font-semibold mb-4 text-black">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-black hover:text-gray-800 transition">Home</a></li>
-                        <li><a href="#culture" class="text-black hover:text-gray-800 transition">Culture</a></li>
+                        <li><a href="#home" class="text-xl font-semibold mb-4 text-black hover:text-gray-800 transition">Home</a></li>
+                        <li><a href="/traditions-culture" class="text-black hover:text-gray-800 transition">Culture</a></li>
                         <li><a href="#history" class="text-black hover:text-gray-800 transition">History</a></li>
                         <li><a href="#geography" class="text-black hover:text-gray-800 transition">Geography</a></li>
                     </ul>
