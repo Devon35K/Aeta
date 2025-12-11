@@ -323,6 +323,148 @@
         </div>
     </section>
 
+
+
+
+
+
+
+    <!-- Aeta Music & Songs -->
+    <section class="py-16 px-4 bg-gradient-to-br from-amber-50 to-orange-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Traditional <span class="text-primary">Music & Songs</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Experience the soulful melodies and rhythmic traditions of the Aeta people through their indigenous music.</p>
+            </div>
+            
+            
+            <!-- Playable Video Section -->
+            <div class="mt-12 bg-white rounded-2xl shadow-xl p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Watch & Listen</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Kfn1TO_CRBM" title="Aeta Traditional Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/SMZ4-b5bplQ" title="Aeta Cultural Chant" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Z2UTOc-xdnc" title="Aeta Folk Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Track currently playing audio
+        let currentlyPlaying = null;
+        let progressInterval;
+        
+        // Format time in seconds to MM:SS
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+        
+        // Update progress bar and time display
+        function updateProgress(audioId) {
+            const audio = document.getElementById(audioId);
+            const container = audio.closest('.bg-white');
+            const progressBar = container.querySelector('.progress-bar');
+            const currentTimeEl = container.querySelector('.current-time');
+            const durationEl = container.querySelector('.duration');
+            
+            if (audio.duration) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+                durationEl.textContent = formatTime(audio.duration);
+            }
+        }
+        
+        // Handle audio end
+        function onAudioEnded(audioId) {
+            const audio = document.getElementById(audioId);
+            const container = audio.closest('.bg-white');
+            const playBtn = container.querySelector('.play-btn');
+            const playIcon = playBtn.querySelector('.play-icon');
+            const pauseIcon = playBtn.querySelector('.pause-icon');
+            
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+            
+            // Reset progress
+            const progressBar = container.querySelector('.progress-bar');
+            progressBar.style.width = '0%';
+            
+            if (currentlyPlaying === audioId) {
+                currentlyPlaying = null;
+            }
+        }
+        
+        // Toggle audio play/pause
+        function toggleAudio(audioId, button) {
+            const audio = document.getElementById(audioId);
+            const playIcon = button.querySelector('.play-icon');
+            const pauseIcon = button.querySelector('.pause-icon');
+            
+            // Stop any currently playing audio
+            if (currentlyPlaying && currentlyPlaying !== audioId) {
+                const prevAudio = document.getElementById(currentlyPlaying);
+                const prevBtn = document.querySelector(`#${currentlyPlaying}`).closest('.bg-white').querySelector('.play-btn');
+                const prevPlayIcon = prevBtn.querySelector('.play-icon');
+                const prevPauseIcon = prevBtn.querySelector('.pause-icon');
+                
+                prevAudio.pause();
+                prevPlayIcon.classList.remove('hidden');
+                prevPauseIcon.classList.add('hidden');
+            }
+            
+            // Toggle current audio
+            if (currentlyPlaying === audioId) {
+                // Pause
+                audio.pause();
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                currentlyPlaying = null;
+            } else {
+                // Play
+                audio.play().catch(error => {
+                    console.error('Error playing audio:', error);
+                });
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+                currentlyPlaying = audioId;
+                
+                // Update progress bar while playing
+                audio.ontimeupdate = () => updateProgress(audioId);
+            }
+        }
+        
+        // Initialize audio elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial duration for all audio elements
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.addEventListener('loadedmetadata', function() {
+                    const container = this.closest('.bg-white');
+                    if (container) {
+                        const durationEl = container.querySelector('.duration');
+                        if (durationEl) {
+                            durationEl.textContent = formatTime(this.duration);
+                        }
+                    }
+                });
+            });
+        });
+
+
+
+
+
+
+
     <!-- Celebrations & Festivals -->
     <section class="py-16 px-4">
         <div class="max-w-6xl mx-auto">
@@ -477,32 +619,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <!-- Video Section -->
-    <section class="py-16 px-4 bg-gradient-to-br from-amber-50 to-orange-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Aeta Culture in Motion</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Experience the rich cultural heritage of the Aeta people through this insightful video
-                </p>
-            </div>
 
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 hover-lift">
-                    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-                        <iframe
-                            src="https://www.youtube.com/embed/jKXCN8Eq0zw"
-                            title="The Aeta People: Guardians of Tradition"
-                            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <script>
         // Mobile menu toggle
