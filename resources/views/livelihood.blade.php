@@ -285,16 +285,9 @@
                         <p class="text-gray-700 mb-6">
                             The Aeta people continue to navigate the challenges of modernization while preserving their cultural heritage. By combining traditional knowledge with new opportunities, they are building sustainable livelihoods that honor their past while securing their future.
                         </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="/traditions-culture" class="px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-semibold rounded-full hover:from-amber-700 hover:to-amber-800 transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center">
-                                <span>Explore Aeta Culture</span>
-                                <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                            <a href="/" class="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-full hover:bg-gray-50 transition-all duration-300 shadow hover:shadow-md inline-flex items-center">
-                                <span>Return Home</span>
-                                <i class="fas fa-home ml-2"></i>
-                            </a>
-                        </div>
+                       
+                   
+                        
                     </div>
                 </div>
             </div>

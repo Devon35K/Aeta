@@ -18,6 +18,6 @@ Route::get('/livelihood', function () {
 	return view('livelihood');
 });
 
-Route::get('/aeta', function () {
-	return view('layouts.aeta');
-});
+use App\Http\Controllers\GalleryController;
+
+Route::get('/aeta', [GalleryController::class, 'index'])->name('gallery');

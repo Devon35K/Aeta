@@ -82,6 +82,7 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 min-h-screen">
+
     <!-- Top Navigation -->
     @include('components.navigation-with-history')
 
@@ -143,6 +144,30 @@
                             <li><strong>Feather Accessories:</strong> Colorful bird feathers used in ceremonial headdresses</li>
                             <li><strong>Body Art:</strong> Traditional tattoos and temporary body paintings for ceremonies</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Traditional Dance Videos -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Traditional Aeta Dance Videos</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+                        <div class="aspect-video">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/UVkl_Vmi6GA" title="Aeta Dancers" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+                        <div class="aspect-video">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/D0waQ0uVMWQ" title="Matagalawen Aeta Dance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+                        <div class="aspect-video">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/fYiHhs0Wjb8" title="Aeta Cultural Dance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -453,6 +478,32 @@
     </footer>
 
     <!-- JavaScript -->
+    <!-- Video Section -->
+    <section class="py-16 px-4 bg-gradient-to-br from-amber-50 to-orange-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Aeta Culture in Motion</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Experience the rich cultural heritage of the Aeta people through this insightful video
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 hover-lift">
+                    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                        <iframe
+                            src="https://www.youtube.com/embed/jKXCN8Eq0zw"
+                            title="The Aeta People: Guardians of Tradition"
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');

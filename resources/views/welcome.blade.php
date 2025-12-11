@@ -459,7 +459,7 @@ header a:hover::after {
 ----------------------------------------- */
 .progress-container {
     position: absolute;
-    bottom: 0;
+    bottom: 0;  
     left: 0;
     width: 100%;
     height: 4px;
@@ -736,7 +736,16 @@ header a:hover::after {
 
 
     <!-- carousel -->
-<div class="carousel relative overflow-hidden">  
+<style>
+    @media (max-width: 767px) {
+        .carousel {
+            display: none !important;
+        }
+        /* Prevent FOUC */
+        html { visibility: visible; opacity: 1; }
+    }
+</style>
+<div class="carousel relative overflow-hidden" style="display: block;">  
     <!-- Firefly Animation -->
     <div class="fireflies">
         <?php for($i = 0; $i < 15; $i++): ?>
@@ -748,7 +757,7 @@ header a:hover::after {
     <div class="list">
         <div class="item">
             <img src="{{ asset('images/aeta1.jpg') }}" class="w-full brightness-50">
-            <div class="content px-4 sm:px-6 lg:px-8 text-center mt-40 sm:mt-48 lg:mt-56">
+              <div class="content px-4 sm:px-6 lg:px-8 text-center">
                 <div class="author text-xs sm:text-sm font-bold tracking-widest mb-2">AETA PEOPLE</div>
                 <div class="title text-2xl sm:text-4xl lg:text-5xl font-bold mb-2">INDIGENOUS FILIPINOS</div>
                 <div class="topic text-lg sm:text-2xl lg:text-3xl mb-4">CULTURE</div>
@@ -758,6 +767,8 @@ header a:hover::after {
                
             </div>
         </div>
+
+
         <div class="item">
             <img src="{{ asset('images/aeta2.webp') }}" class="w-full brightness-50 object-cover" alt="Aeta community engaged in traditional livelihood activities">
             <div class="content px-4 sm:px-6 lg:px-8 text-center">
@@ -1255,7 +1266,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     </style>
-
     <!-- Culture Section -->
     <section id="culture" class="py-24 bg-gradient-to-br from-[#f5ebe0] via-[#ede8dd] to-[#e8dfd5] relative overflow-hidden">
         <!-- Vanta.js Birds Background -->
@@ -1288,7 +1298,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         <div class="relative">
                             <div class="h-48 w-full overflow-hidden">
-                                <img src="{{ asset('images/aeta2.webp') }}" alt="Aeta community life" class="w-full h-full object-cover">
+                                <img src="{{ asset('images/17.png
+                            ') }}" alt="Aeta community life" class="w-full h-full object-cover">
                             </div>
                         </div>
                         <div class="relative p-8 lg:p-10">
@@ -1322,7 +1333,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         <div class="relative">
                             <div class="h-48 w-full overflow-hidden">
-                                <img src="{{ asset('images/aeta4.webp') }}" alt="Aeta traditional cuisine" class="w-full h-full object-cover">
+                                <img src="{{ asset('images/bam.webp') }}" alt="Aeta traditional cuisine" class="w-full h-full object-cover">
                             </div>
                         </div>
                         <div class="relative p-8 lg:p-10">
@@ -1376,8 +1387,62 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </div>
+            <!-- Culture Videos -->
 
-           
+
+
+
+
+
+
+
+
+
+            <div class="mt-16">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-3">Culture in Motion</h3>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        These videos highlight how Aeta culture is expressed through song, rhythm, and movement.
+                        Each dance tells a story—about hunting, community gatherings, courtship, or thanksgiving
+                        to nature and the spirits—showing how traditions are kept alive across generations.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Video 1 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+                        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                            <iframe
+                                src="https://www.youtube.com/embed/86ubRlfdbyE"
+                                title="Aeta Culture Video"
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+
+              
+
+                    <!-- Video 2 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+                        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                            <iframe
+                                src="https://www.youtube.com/embed/Z2UTOc-xdnc"
+                                title="Aeta Dances Video"
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                   
+
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1467,36 +1532,65 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
 
                         <div class="grid grid-cols-1 gap-3">
-                            <button type="button" class="flex items-center justify-between p-3 text-left bg-stone-50 rounded-lg border border-stone-200 hover:bg-stone-100 transition-all focus:ring-2 focus:ring-stone-400 focus:outline-none location-btn group" data-name="Zambales Mountains" data-lat="15.5" data-lng="120.1466" data-zoom="9">
-                                <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-stone-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-gray-700">Zambales Mountains</span>
-                                </div>
-                            </button>
-                            <button type="button" class="flex items-center justify-between p-3 text-left bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-all focus:ring-2 focus:ring-slate-400 focus:outline-none location-btn group" data-name="Sierra Madre Mountain Range" data-lat="16.4" data-lng="121.4" data-zoom="8.5">
-                                <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-slate-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-gray-700">Sierra Madre Mountain Range</span>
-                                </div>
-                            </button>
-                            <button type="button" class="flex items-center justify-between p-3 text-left bg-neutral-50 rounded-lg border border-neutral-200 hover:bg-neutral-100 transition-all focus:ring-2 focus:ring-neutral-400 focus:outline-none location-btn group" data-name="Bataan Peninsula" data-lat="14.68" data-lng="120.33" data-zoom="10">
-                                <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-neutral-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-gray-700">Bataan Peninsula</span>
-                                </div>
-                            </button>
-                            <button type="button" class="flex items-center justify-between p-3 text-left bg-stone-50 rounded-lg border border-stone-200 hover:bg-stone-100 transition-all focus:ring-2 focus:ring-stone-400 focus:outline-none location-btn group" data-name="Pampanga &amp; Tarlac" data-lat="15.35" data-lng="120.65" data-zoom="9.5">
-                                <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-stone-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-gray-700">Pampanga & Tarlac</span>
-                                </div>
-                            </button>
-                            <button type="button" class="flex items-center justify-between p-3 text-left bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-all focus:ring-2 focus:ring-slate-400 focus:outline-none location-btn group" data-name="Bicol Region" data-lat="13.3" data-lng="123.5" data-zoom="8.5">
-                                <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-slate-600 mr-3 group-hover:scale-110 transition-transform"></i>
-                                    <span class="font-semibold text-gray-700">Bicol Region</span>
-                                </div>
-                            </button>
+                            <button type="button" class="flex items-center justify-between p-3 text-left bg-stone-50 rounded-lg border border-stone-200 hover:bg-stone-100 transition-all focus:ring-2 focus:ring-stone-400 focus:outline-none location-btn group" 
+        data-name="Zambales Mountains" 
+        data-lat="15.5" 
+        data-lng="120.1466" 
+        data-zoom="9"
+        data-image="{{ asset('images/zambales.webp') }}">
+    <div class="flex items-center">
+        <i class="fas fa-map-marker-alt text-stone-600 mr-3 group-hover:scale-110 transition-transform"></i>
+        <span class="font-semibold text-gray-700">Zambales Mountains</span>
+    </div>
+</button>
+
+<button type="button" class="flex items-center justify-between p-3 text-left bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-all focus:ring-2 focus:ring-slate-400 focus:outline-none location-btn group" 
+        data-name="Sierra Madre Mountain Range" 
+        data-lat="16.4" 
+        data-lng="121.4" 
+        data-zoom="8.5"
+        data-image="{{ asset('images/Sierra Madre Mountain Range.webp') }}">
+    <div class="flex items-center">
+        <i class="fas fa-map-marker-alt text-slate-600 mr-3 group-hover:scale-110 transition-transform"></i>
+        <span class="font-semibold text-gray-700">Sierra Madre Mountain Range</span>
+    </div>
+</button>
+
+<button type="button" class="flex items-center justify-between p-3 text-left bg-neutral-50 rounded-lg border border-neutral-200 hover:bg-neutral-100 transition-all focus:ring-2 focus:ring-neutral-400 focus:outline-none location-btn group" 
+        data-name="Bataan Peninsula" 
+        data-lat="14.68" 
+        data-lng="120.33" 
+        data-zoom="10"
+        data-image="{{ asset('images/Bataan Peninsula.webp') }}">
+    <div class="flex items-center">
+        <i class="fas fa-map-marker-alt text-neutral-600 mr-3 group-hover:scale-110 transition-transform"></i>
+        <span class="font-semibold text-gray-700">Bataan Peninsula</span>
+    </div>
+</button>
+
+<button type="button" class="flex items-center justify-between p-3 text-left bg-stone-50 rounded-lg border border-stone-200 hover:bg-stone-100 transition-all focus:ring-2 focus:ring-stone-400 focus:outline-none location-btn group" 
+        data-name="Pampanga & Tarlac" 
+        data-lat="15.35" 
+        data-lng="120.65" 
+        data-zoom="9.5"
+        data-image="{{ asset('images/Pampanga & Tarlac.webp') }}">
+    <div class="flex items-center">
+        <i class="fas fa-map-marker-alt text-stone-600 mr-3 group-hover:scale-110 transition-transform"></i>
+        <span class="font-semibold text-gray-700">Pampanga & Tarlac</span>
+    </div>
+</button>
+
+<button type="button" class="flex items-center justify-between p-3 text-left bg-slate-50 rounded-lg border border-slate-200 hover:bg-slate-100 transition-all focus:ring-2 focus:ring-slate-400 focus:outline-none location-btn group" 
+        data-name="Bicol Region" 
+        data-lat="13.3" 
+        data-lng="123.5" 
+        data-zoom="8.5"
+        data-image="{{ asset('images/Bicol Region.webp') }}">
+    <div class="flex items-center">
+        <i class="fas fa-map-marker-alt text-slate-600 mr-3 group-hover:scale-110 transition-transform"></i>
+        <span class="font-semibold text-gray-700">Bicol Region</span>
+    </div>
+</button>
                         </div>
 
                         <div class="bg-gradient-to-r from-stone-100 to-slate-100 p-4 rounded-xl border border-stone-200 shadow-inner">
@@ -1517,7 +1611,65 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> Outline
                             </div>
                         </div>
-                        <div id="map" class="h-96 bg-gradient-to-br from-stone-100 to-slate-100 rounded-xl relative overflow-hidden border border-slate-200 shadow-lg ring-1 ring-stone-100"></div>
+                        <div id="map" class="h-96 bg-gradient-to-br from-stone-100 to-slate-100 rounded-xl relative overflow-hidden border border-slate-200 shadow-lg ring-1 ring-stone-100 flex items-center justify-center">
+    <div class="text-center p-8 text-gray-400">
+        <i class="fas fa-mountain text-4xl mb-2"></i>
+        <p>Click on a location to view its image</p>
+    </div>
+</div>
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const locationButtons = document.querySelectorAll('.location-btn');
+    const mapContainer = document.getElementById('map');
+    let currentImage = null;
+
+    locationButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const imageUrl = this.getAttribute('data-image');
+            const locationName = this.getAttribute('data-name');
+            
+            // Remove previous image if exists
+            if (currentImage) {
+                currentImage.remove();
+            }
+            
+            // Create and append new image
+            const imageWrapper = document.createElement('div');
+            imageWrapper.className = 'w-full h-full relative';
+            
+            currentImage = document.createElement('img');
+            currentImage.src = imageUrl;
+            currentImage.alt = locationName;
+            currentImage.className = 'w-full h-full object-cover';
+            
+            const caption = document.createElement('div');
+            caption.className = 'absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white';
+            caption.textContent = locationName;
+            
+            imageWrapper.appendChild(currentImage);
+            imageWrapper.appendChild(caption);
+            
+            mapContainer.innerHTML = '';
+            mapContainer.appendChild(imageWrapper);
+        });
+    });
+
+    // Reset button functionality
+    document.getElementById('reset-map').addEventListener('click', function() {
+        if (currentImage) {
+            mapContainer.innerHTML = `
+                <div class="text-center p-8 text-gray-400">
+                    <i class="fas fa-mountain text-4xl mb-2"></i>
+                    <p>Click on a location to view its image</p>
+                </div>`;
+            currentImage = null;
+        }
+    });
+});
+</script>
+@endpush
                     </div>
                 </div>
             </div>
@@ -1648,6 +1800,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
+
     <!-- Gallery Section -->
     <section id="gallery" class="py-20 bg-gradient-to-br from-[#f5ebe0] via-[#ede8dd] to-[#e8dfd5] relative overflow-hidden">
         <div class="absolute inset-0 opacity-5">
@@ -1663,10 +1816,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="group bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-200">
                     <div class="relative overflow-hidden h-64">
-                        <div class="absolute inset-0 bg-gradient-to-br from-slate-100 to-neutral-100 animate-pulse"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-image text-6xl text-slate-400"></i>
-                        </div>
+                        <img src="{{ asset('images/aeta.webp') }}" alt="Aeta performing traditional dance" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div class="p-6">
@@ -1680,10 +1830,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="group bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-neutral-200">
                     <div class="relative overflow-hidden h-64">
-                        <div class="absolute inset-0 bg-gradient-to-br from-neutral-100 to-stone-100 animate-pulse"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-image text-6xl text-neutral-400"></i>
-                        </div>
+                        <img src="{{ asset('images/bam.webp') }}" alt="Traditional bamboo weaving" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div class="p-6">
@@ -1697,10 +1844,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="group bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-stone-200">
                     <div class="relative overflow-hidden h-64">
-                        <div class="absolute inset-0 bg-gradient-to-br from-stone-100 to-slate-100 animate-pulse"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-image text-6xl text-stone-400"></i>
-                        </div>
+                        <img src="{{ asset('images/groupic.webp') }}" alt="Aeta family life" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div class="p-6">
@@ -1714,7 +1858,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
             <div class="text-center mt-12">
-                <a href="/aeta" class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+                <a href="{{ route('gallery') }}" class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                     <i class="fas fa-images mr-2"></i>
                     View Full Gallery
                 </a>
@@ -1844,7 +1988,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         [120.26, 15.95], [120.05, 16.05], [119.88, 15.8], [119.82, 15.5],
                         [119.88, 15.0]
                     ],
-                    img: "{{ asset('images/aeta1.jpg') }}",
+                    img: "{{ asset('images/zambales.webp') }}",
                     blurb: 'Aeta communities in the Zambales range with forested foothills.'
                 },
                 'Sierra Madre Mountain Range': {
@@ -1855,7 +1999,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         [122.05, 14.6], [121.6, 14.3], [121.1, 14.6], [120.95, 15.3],
                         [121.05, 16.0], [121.2, 17.4]
                     ],
-                    img: "{{ asset('images/aeta2.webp') }}",
+                    img: "{{ asset('images/Sierra Madre Mountain Range.webp') }}",
                     blurb: 'Spanning Luzon’s eastern spine with dense forests and rivers.'
                 },
                 'Bataan Peninsula': {
@@ -1865,7 +2009,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         [120.22, 14.47], [120.45, 14.40], [120.62, 14.55], [120.62, 14.77],
                         [120.52, 14.95], [120.35, 14.95], [120.20, 14.80], [120.22, 14.47]
                     ],
-                    img: "{{ asset('images/aeta3.webp') }}",
+                    img: "{{ asset('images/Bataan Peninsula.webp') }}",
                     blurb: 'Peninsula landscapes overlooking West Philippine Sea.'
                 },
                 'Pampanga & Tarlac': {
@@ -1876,7 +2020,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         [120.95, 15.67], [120.70, 15.85], [120.42, 15.78], [120.28, 15.50],
                         [120.33, 15.01]
                     ],
-                    img: "{{ asset('images/aeta4.jpg') }}",
+                    img: "{{ asset('images/Pampanga & Tarlac.webp') }}",
                     blurb: 'Heartland plains with nearby uplands and river systems.'
                 },
                 'Bicol Region': {
@@ -1887,7 +2031,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         [124.1, 13.9], [123.4, 14.1], [122.8, 13.9], [122.6, 13.2],
                         [122.6, 12.7]
                     ],
-                    img: "{{ asset('images/aeta2.webp') }}",
+                    img: "{{ asset('images/Bicol Region.webp') }}",
                     blurb: 'Southern Luzon range and volcanic slopes.'
                 }
             };

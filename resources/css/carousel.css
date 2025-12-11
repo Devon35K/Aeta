@@ -473,3 +473,71 @@ header a{
 .carousel .list .item img{
     object-fit: contain;
 }
+
+
+@media (max-width: 768px) {
+    .carousel {
+        min-height: 70vh;
+        height: auto;
+    }
+
+    .carousel .content {
+        top: 22%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        padding: 1.25rem;
+    }
+
+    .carousel .content .title {
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+
+    .carousel .content .topic {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .carousel .content .des {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+/* Hide carousel on mobile devices */
+@media (max-width: 767px) {
+    .carousel {
+        display: none !important;
+    }
+    
+    /* Ensure no extra space is taken by the hidden carousel */
+    .carousel,
+    .carousel * {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel .content {
+        top: 24%;
+        width: 95%;
+        padding: 0.9rem;
+    }
+
+    .carousel .content .title {
+        font-size: 1.4rem;
+    }
+
+    .carousel .content .topic {
+        font-size: 1rem;
+    }
+
+    .carousel .content .des {
+        font-size: 0.85rem;
+    }
+}
