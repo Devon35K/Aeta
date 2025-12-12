@@ -340,17 +340,29 @@
             
             
             <!-- Playable Video Section -->
-            <div class="mt-12 bg-white rounded-2xl shadow-xl p-8">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Watch & Listen</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Kfn1TO_CRBM" title="Aeta Traditional Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="mt-12 bg-white rounded-2xl shadow-xl p-6 md:p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Watch & Listen</h3>
+                    <p class="text-gray-600 mt-2">Selected performances and recordings that showcase Aeta musical traditions.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-amber-50/60 rounded-2xl border border-amber-100 shadow-sm overflow-hidden">
+                        <div class="aspect-video">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/Kfn1TO_CRBM" title="Aeta Traditional Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <p class="font-semibold text-gray-800">Aeta Traditional Song</p>
+                            <p class="text-sm text-gray-600 mt-1">Traditional vocal style and rhythm.</p>
+                        </div>
                     </div>
-                    <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/SMZ4-b5bplQ" title="Aeta Cultural Chant" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                    <div class="aspect-video rounded-xl overflow-hidden shadow-lg">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/Z2UTOc-xdnc" title="Aeta Folk Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="bg-orange-50/60 rounded-2xl border border-orange-100 shadow-sm overflow-hidden">
+                        <div class="aspect-video">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/Z2UTOc-xdnc" title="Aeta Folk Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <p class="font-semibold text-gray-800">Aeta Folk Music</p>
+                            <p class="text-sm text-gray-600 mt-1">Community music with indigenous instruments.</p>
+                        </div>
                     </div>
                 </div>
             </div>
