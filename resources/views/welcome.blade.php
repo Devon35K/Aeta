@@ -1618,58 +1618,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </div>
 
-@push('scripts')
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const locationButtons = document.querySelectorAll('.location-btn');
-    const mapContainer = document.getElementById('map');
-    let currentImage = null;
-
-    locationButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const imageUrl = this.getAttribute('data-image');
-            const locationName = this.getAttribute('data-name');
-            
-            // Remove previous image if exists
-            if (currentImage) {
-                currentImage.remove();
-            }
-            
-            // Create and append new image
-            const imageWrapper = document.createElement('div');
-            imageWrapper.className = 'w-full h-full relative';
-            
-            currentImage = document.createElement('img');
-            currentImage.src = imageUrl;
-            currentImage.alt = locationName;
-            currentImage.className = 'w-full h-full object-cover';
-            
-            const caption = document.createElement('div');
-            caption.className = 'absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white';
-            caption.textContent = locationName;
-            
-            imageWrapper.appendChild(currentImage);
-            imageWrapper.appendChild(caption);
-            
-            mapContainer.innerHTML = '';
-            mapContainer.appendChild(imageWrapper);
-        });
-    });
-
-    // Reset button functionality
-    document.getElementById('reset-map').addEventListener('click', function() {
-        if (currentImage) {
-            mapContainer.innerHTML = `
-                <div class="text-center p-8 text-gray-400">
-                    <i class="fas fa-mountain text-4xl mb-2"></i>
-                    <p>Click on a location to view its image</p>
-                </div>`;
-            currentImage = null;
-        }
-    });
-});
-</script>
-@endpush
                     </div>
                 </div>
             </div>
