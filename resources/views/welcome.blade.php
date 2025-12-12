@@ -573,12 +573,12 @@ header a:hover::after {
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(17, 24, 39, 0.55);
+    background: rgba(17, 24, 39, 0.82);
     backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 80;
+    z-index: 2000;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s ease;
@@ -588,8 +588,8 @@ header a:hover::after {
     pointer-events: auto;
 }
 .modal-card {
-    width: min(720px, 92vw);
-    max-height: 80vh;
+    width: min(920px, 94vw);
+    max-height: 86vh;
     overflow-y: auto;
     background: linear-gradient(180deg, #f5ebe0 0%, #ede8dd 60%, #e8dfd5 100%);
     color: #1f2937;
@@ -600,6 +600,10 @@ header a:hover::after {
     transform: translateY(12px) scale(0.98);
     opacity: 0.92;
     transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+}
+.modal-overlay#references-modal .modal-card {
+    background: linear-gradient(180deg, #e5e7eb 0%, #cbd5e1 60%, #9ca3af 100%);
+    border: 1px solid rgba(31, 41, 55, 0.14);
 }
 .modal-overlay.open .modal-card { transform: translateY(0) scale(1); opacity: 1; box-shadow: 0 28px 70px rgba(0,0,0,0.3); }
 .modal-header {
@@ -650,6 +654,107 @@ header a:hover::after {
 .reference-list li:nth-child(8) { animation-delay: 0.3s; }
 .reference-list li:nth-child(9) { animation-delay: 0.34s; }
 .reference-list li:nth-child(10) { animation-delay: 0.38s; }
+
+.academic-members {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 18px;
+    justify-items: center;
+}
+@media (min-width: 640px) {
+    .academic-members { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) {
+    .academic-members { gap: 14px; }
+    .academic-avatar { width: 88px; height: 88px; }
+    .academic-meta strong { font-size: 0.92rem; }
+    .academic-meta .full-name { display: none; }
+    .academic-meta .last-name { display: inline; }
+}
+.academic-modal .modal-card {
+    background:
+        radial-gradient(900px 520px at 20% 0%, rgba(31, 41, 55, 0.10), transparent 58%),
+        radial-gradient(800px 460px at 100% 100%, rgba(31, 41, 55, 0.10), transparent 60%),
+        linear-gradient(180deg, #e5e7eb 0%, #cbd5e1 60%, #9ca3af 100%);
+    color: #1f2937;
+    border: 1px solid rgba(31, 41, 55, 0.14);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+}
+.academic-modal .modal-header h3 {
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.academic-modal .modal-close {
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(31, 41, 55, 0.15);
+    color: #1f2937;
+}
+.academic-modal .modal-close:hover { background: rgba(255,255,255,0.9); }
+.academic-panel {
+    border-radius: 16px;
+    padding: 18px 18px;
+    border: 1px solid rgba(45, 80, 22, 0.14);
+    background: linear-gradient(180deg, rgba(255,255,255,0.70) 0%, rgba(255,255,255,0.45) 100%);
+}
+.academic-center {
+    text-align: center;
+}
+.academic-center .accent {
+    color: #2d5016;
+    font-weight: 800;
+}
+.academic-section-title {
+    margin-top: 18px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #2d5016;
+    text-align: center;
+}
+.academic-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 14px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fade-up 0.32s ease forwards;
+}
+.academic-member:nth-child(1) { animation-delay: 0.02s; }
+.academic-member:nth-child(2) { animation-delay: 0.08s; }
+.academic-member:nth-child(3) { animation-delay: 0.14s; }
+.academic-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 4px solid rgba(45, 80, 22, 0.35);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.25);
+}
+.academic-meta strong {
+    display: block;
+    color: #111827;
+    font-size: 0.98rem;
+    text-align: center;
+    line-height: 1.25;
+    max-width: 220px;
+    margin: 0 auto;
+    word-break: break-word;
+}
+.academic-meta .last-name { display: none; }
+.academic-meta span {
+    display: block;
+    color: #374151;
+    font-size: 0.9rem;
+    text-align: center;
+}
 
 @keyframes fade-up {
     from { opacity: 0; transform: translateY(12px); }
@@ -1815,33 +1920,64 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#2d5016] text-black py-12">
-        <div class="container mx-auto px-6">
-            <div class="border-t border-gray-400 mb-8"></div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4 text-black">Aeta Heritage</h3>
-                    <p class="text-black">Dedicated to preserving and promoting the rich cultural heritage of the Aeta people.</p>
+    <footer class="bg-gradient-to-br from-[#f5ebe0] via-[#ede8dd] to-[#e8dfd5] text-gray-800 py-16 border-t border-stone-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid gap-10 md:grid-cols-3">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-white/70 border border-stone-200 shadow-sm flex items-center justify-center">
+                            <i class="fas fa-leaf text-[#2d5016]"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Aeta Heritage</h3>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Dedicated to preserving and promoting the rich cultural heritage of the Aeta people.
+                    </p>
                 </div>
+
                 <div>
-                    <h4 class="text-lg font-semibold mb-4 text-black">Quick Links</h4>
+                    <h4 class="text-lg font-semibold mb-4 text-gray-900">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-xl font-semibold mb-4 text-black hover:text-gray-800 transition">Home</a></li>
-                        <li><a href="/traditions-culture" class="text-black hover:text-gray-800 transition">Culture</a></li>
-                        <li><a href="#history" class="text-black hover:text-gray-800 transition">History</a></li>
-                        <li><a href="#geography" class="text-black hover:text-gray-800 transition">Geography</a></li>
+                        <li><a href="#home" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 transition">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#2d5016] inline-block"></span>
+                            Home
+                        </a></li>
+                        <li><a href="/traditions-culture" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 transition">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#2d5016] inline-block"></span>
+                            Culture
+                        </a></li>
+                        <li><a href="#history" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 transition">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#2d5016] inline-block"></span>
+                            History
+                        </a></li>
+                        <li><a href="#geography" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 transition">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#2d5016] inline-block"></span>
+                            Geography
+                        </a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4 text-black">References</h4>
-                    <p class="text-black text-sm mb-4">Explore our research sources and further reading.</p>
-                    <button id="open-references" class="px-4 py-2 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 text-white border border-black/10 rounded-full text-sm font-semibold hover:shadow-lg hover:-translate-y-0.5 transition">
-                        View References
-                    </button>
+
+                <div class="space-y-3">
+                    <h4 class="text-lg font-semibold mb-2 text-gray-900">Literature & Resources</h4>
+                    <p class="text-gray-700 text-sm mb-5">Explore our research sources and further reading</p>
+                    <div class="flex flex-row flex-wrap gap-3">
+                        <button type="button" id="open-references" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition">
+                            <i class="fas fa-book-open text-white/90"></i>
+                            View References
+                        </button>
+                        <button type="button" id="open-academic" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition">
+                            <i class="fas fa-graduation-cap text-white/90"></i>
+                            Academic Info
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-gray-400 mt-8 pt-8 text-center text-black text-sm">
-                <p>&copy; <?php echo date('Y'); ?> Aeta Heritage. All rights reserved.</p>
+
+            <div class="mt-12 pt-8 border-t border-stone-200 text-center text-gray-700 text-sm space-y-2">
+                <p class="font-medium text-gray-800">Created with respect for the aeta people and their enduring heritage</p>
+                <p>Educational Portfolio &bull;</p>
+                <p>This website is an educational IEC (Information, Education, and Communication) material created for academic purposes. All cultural information is presented respectfully and drawn from documented sources.</p>
+                <p class="pt-2">&copy; <?php echo date('Y'); ?> Aeta Heritage. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1851,7 +1987,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="modal-card">
             <div class="modal-header">
                 <h3 id="references-title">References</h3>
-                <button id="close-references" class="modal-close" aria-label="Close references">&times;</button>
+                <button type="button" id="close-references" class="modal-close" aria-label="Close references">&times;</button>
             </div>
             <ul class="reference-list text-sm leading-relaxed">
                 <li><strong>National Commission on Indigenous Peoples (NCIP)</strong></li>
@@ -1867,6 +2003,129 @@ document.addEventListener('DOMContentLoaded', function() {
             </ul>
         </div>
     </div>
+
+    <div id="academic-modal" class="modal-overlay academic-modal" role="dialog" aria-modal="true" aria-labelledby="academic-title">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="academic-title"><i class="fas fa-graduation-cap"></i> Academic Information</h3>
+                <button type="button" id="close-academic" class="modal-close" aria-label="Close academic information">&times;</button>
+            </div>
+            <div class="space-y-5">
+                <div class="academic-panel academic-center">
+                    <div class="text-sm text-gray-700">This is for educational purposes only.</div>
+                    <div class="text-lg mt-1">
+                        A final requirement for <span class="accent">EGE 311 - PHILIPPINE INDIGENOUS COMMUNITIES</span> Course.
+                    </div>
+                </div>
+
+                <div class="academic-section-title">Group Members:</div>
+                <div class="academic-members">
+                    <div class="academic-member">
+                        <img class="academic-avatar" src="{{ asset('images/profilepic/arthur.jpg') }}" alt="Arthur Dale Enrique Micaroz">
+                        <div class="academic-meta">
+                            <strong><span class="full-name">Arthur Dale Enrique U. Micaroz</span><span class="last-name">Micaroz</span></strong>
+                        </div>
+                    </div>
+                    <div class="academic-member">   
+                        <img class="academic-avatar" src="{{ asset('images/profilepic/jhae.jpg') }}" alt="Ma. Jhaessa Victoria R. Quilla">
+                        <div class="academic-meta">
+                            <strong><span class="full-name">Ma. Jhaessa Victoria R. Quilla</span><span class="last-name">Quilla</span></strong>
+                        </div>
+                    </div>
+                    <div class="academic-member">
+                        <img class="academic-avatar" src="{{ asset('images/profilepic/beth.jpg') }}" alt="Beth Sophia Tajale">
+                        <div class="academic-meta">
+                            <strong><span class="full-name">Beth Sophia L. Tajale</span><span class="last-name">Tajale</span></strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="academic-panel academic-center">
+                    <div class="text-sm font-semibold text-gray-700">Submitted to:</div>
+                    <div class="text-base mt-2" style="text-transform: uppercase; letter-spacing: 0.04em;">DR. ROSENDO R. MERIWAN</div>
+                    <div class="text-xs text-gray-600 mt-1">Instructor, EGE 311</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const referencesModal = document.getElementById('references-modal');
+            const openReferences = document.getElementById('open-references');
+            const closeReferences = document.getElementById('close-references');
+
+            if (!referencesModal || !openReferences || !closeReferences) return;
+
+            const syncBodyScroll = () => {
+                const anyOpen = document.querySelector('.modal-overlay.open');
+                document.body.style.overflow = anyOpen ? 'hidden' : '';
+            };
+
+            const hideModal = () => {
+                referencesModal.classList.remove('open');
+                syncBodyScroll();
+            };
+
+            openReferences.addEventListener('click', (e) => {
+                e.preventDefault();
+                referencesModal.classList.add('open');
+                syncBodyScroll();
+            });
+
+            closeReferences.addEventListener('click', (e) => {
+                e.preventDefault();
+                hideModal();
+            });
+
+            referencesModal.addEventListener('click', (e) => {
+                if (e.target === referencesModal) hideModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideModal();
+            });
+        })();
+    </script>
+
+    <script>
+        (function() {
+            const academicModal = document.getElementById('academic-modal');
+            const openAcademic = document.getElementById('open-academic');
+            const closeAcademic = document.getElementById('close-academic');
+
+            if (!academicModal || !openAcademic || !closeAcademic) return;
+
+            const syncBodyScroll = () => {
+                const anyOpen = document.querySelector('.modal-overlay.open');
+                document.body.style.overflow = anyOpen ? 'hidden' : '';
+            };
+
+            const hideModal = () => {
+                academicModal.classList.remove('open');
+                syncBodyScroll();
+            };
+
+            openAcademic.addEventListener('click', (e) => {
+                e.preventDefault();
+                academicModal.classList.add('open');
+                syncBodyScroll();
+            });
+
+            closeAcademic.addEventListener('click', (e) => {
+                e.preventDefault();
+                hideModal();
+            });
+
+            academicModal.addEventListener('click', (e) => {
+                if (e.target === academicModal) hideModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') hideModal();
+            });
+        })();
+    </script>
 
     <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
         <!-- Main JS -->
@@ -2226,8 +2485,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // References modal
             if (openReferences && closeReferences && referencesModal) {
-                const hideModal = () => referencesModal.classList.remove('open');
-                openReferences.addEventListener('click', () => referencesModal.classList.add('open'));
+                const hideModal = () => {
+                    referencesModal.classList.remove('open');
+                    document.body.style.overflow = '';
+                };
+                openReferences.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    referencesModal.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
                 closeReferences.addEventListener('click', hideModal);
                 referencesModal.addEventListener('click', (e) => {
                     if (e.target === referencesModal) hideModal();
