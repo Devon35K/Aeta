@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aeta Gallery</title>
+    <link rel="icon" href="{{ asset('images/aetalogo.png') }}" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -39,6 +40,15 @@
             <!-- Image Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="image-grid">
                 @foreach($images as $image)
+                    @php
+                        $imagePath = $image['path'] ?? '';
+                        $imageUrlPath = parse_url($imagePath, PHP_URL_PATH);
+                        $imageFileName = pathinfo($imageUrlPath ?? $imagePath, PATHINFO_BASENAME);
+                        $excludedFiles = ['aetalogo.png', 'playing poop childe.webp', 'aeta girl.webp'];
+                    @endphp
+                    @if(in_array($imageFileName, $excludedFiles, true))
+                        @continue
+                    @endif
                     <div class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-white transform hover:-translate-y-1" 
                          data-category="{{ str_contains(strtolower($image['name']), 'aeta') ? 'aeta' : (str_contains(strtolower($image['name']), 'craft') ? 'crafts' : 'all') }}">
                         <div class="relative overflow-hidden h-64">

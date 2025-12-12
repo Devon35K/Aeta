@@ -1816,7 +1816,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="group bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-slate-200">
                     <div class="relative overflow-hidden h-64">
-                        <img src="{{ asset('images/aeta.webp') }}" alt="Aeta performing traditional dance" class="w-full h-full object-cover">
+                        <img src="{{ asset('images/aeta4.jpg') }}" alt="Aeta performing traditional dance" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div class="p-6">
