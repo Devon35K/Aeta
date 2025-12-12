@@ -665,12 +665,18 @@ header a:hover::after {
 @media (min-width: 640px) {
     .academic-members { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+@media (max-width: 639px) {
+    .academic-members { grid-template-columns: 1fr; gap: 18px; }
+    .academic-avatar { width: 100px; height: 100px; }
+    .academic-meta .full-name { display: inline; }
+    .academic-meta .last-name { display: none; }
+}
 @media (max-width: 420px) {
-    .academic-members { gap: 14px; }
-    .academic-avatar { width: 88px; height: 88px; }
+    .academic-members { grid-template-columns: 1fr; gap: 18px; }
+    .academic-avatar { width: 96px; height: 96px; }
     .academic-meta strong { font-size: 0.92rem; }
-    .academic-meta .full-name { display: none; }
-    .academic-meta .last-name { display: inline; }
+    .academic-meta .full-name { display: inline; }
+    .academic-meta .last-name { display: none; }
 }
 .academic-modal .modal-card {
     background:
@@ -749,7 +755,7 @@ header a:hover::after {
     word-break: break-word;
 }
 .academic-meta .last-name { display: none; }
-.academic-meta span {
+.academic-meta > span {
     display: block;
     color: #374151;
     font-size: 0.9rem;
@@ -1990,17 +1996,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button type="button" id="close-references" class="modal-close" aria-label="Close references">&times;</button>
             </div>
             <ul class="reference-list text-sm leading-relaxed">
-                <li><strong>National Commission on Indigenous Peoples (NCIP)</strong></li>
-                <li><strong>Philippine Indigenous Peoples Links</strong></li>
-                <li><strong>Anthropological Studies on Aeta Communities</strong></li>
-                <li><strong>National Museum of the Philippines</strong></li>
-                <li>Balilla, V., McHenry, J. A., &amp; McHenry, M. (2013). Indigenous Aeta Magbukún Self-Identity, Sociopolitical Structures, and Self-Determination at the Local Level in the Philippines.</li>
-                <li>Dizon, M., Luzon, F., &amp; Poblete, K. (2021). Analysis on household income to the indigenous Aetas of Pampanga Philippines.</li>
-                <li>Yang, E., Kim, J., Biag, A., &amp; Mangulabnan, J. (2020). A study on health and hygiene needs, strategies, and well-being of an Aeta indigenous community in the Philippines through photovoice methods.</li>
-                <li>Parre&ntilde;o, L. (2018). History, Geographical Distribution and Surviving Indigenous Practices of the Aetas in Guimaras Island.</li>
-                <li>Torres, R. (2016). Aeta Indigenous Women Healers in the Philippines: Lessons and Implications.</li>
-                <li>Torres, R. (2017). Transforming indigenous curriculum in the Philippines through indigenous women’s knowledge and practices: A case study on Aeta women healers.</li>
-            </ul>
+    <li>Balilla, V., McHenry, J. A., & McHenry, M. (2013). <i>Indigenous Aeta Magbukún self-identity, sociopolitical structures, and self-determination at the local level in the Philippines</i>.</li>
+
+    <li>Dizon, M., Luzon, F., & Poblete, K. (2021). <i>Analysis on household income of the Indigenous Aetas of Pampanga, Philippines</i>.</li>
+
+    <li>National Commission on Indigenous Peoples. (n.d.). <i>NCIP official publications and reports</i>.</li>
+
+    <li>National Museum of the Philippines. (n.d.). <i>Collections and ethnographic resources</i>.</li>
+
+    <li>Parreño, L. (2018). <i>History, geographical distribution, and surviving Indigenous practices of the Aetas in Guimaras Island</i>.</li>
+
+    <li>Philippine Indigenous Peoples Links. (n.d.). <i>Indigenous Peoples resources and documentation</i>.</li>
+
+    <li>Torres, R. (2016). <i>Aeta Indigenous women healers in the Philippines: Lessons and implications</i>.</li>
+
+    <li>Torres, R. (2017). <i>Transforming Indigenous curriculum in the Philippines through Indigenous women’s knowledge and practices: A case study on Aeta women healers</i>.</li>
+
+    <li>Yang, E., Kim, J., Biag, A., & Mangulabnan, J. (2020). <i>A study on health and hygiene needs, strategies, and well-being of an Aeta Indigenous community in the Philippines through photovoice methods</i>.</li>
+</ul>
+
         </div>
     </div>
 
